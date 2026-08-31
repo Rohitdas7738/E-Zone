@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "routes": [
+    {
+      "src": "/download-pdf",
+      "dest": "/E-Zone_Products_Price_List.pdf",
+      "headers": {
+        "Content-Type": "application/pdf",
+        "Content-Disposition": "attachment; filename=\"E-Zone_Products_Price_List.pdf\""
+      }
+    },
+    {
+      "src": "/download",
+      "dest": "/E-Zone_Products_Price_List.pdf",
+      "headers": {
+        "Content-Type": "application/pdf",
+        "Content-Disposition": "attachment; filename=\"E-Zone_Products_Price_List.pdf\""
+      }
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}

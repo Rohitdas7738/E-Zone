@@ -1,0 +1,14 @@
+{
+  "name": "e-zone",
+  "version": "1.0.0",
+  "description": "E-Zone Electric Shop & Product Catalogue",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "echo 'Static build ready'"
+  },
+  "keywords": [],
+  "author": "Rohit Das",
+  "license": "ISC"
+}
