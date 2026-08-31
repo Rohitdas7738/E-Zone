@@ -131,13 +131,13 @@
 
             const mrp = (p.price * 1.25).toFixed(0);
             const discount = p.discountPercent || 20;
-            const imgUrl = p.customImage || (typeof getEmbeddedProductImage === 'function' ? getEmbeddedProductImage(p) : 'images/logo.png') || 'images/logo.png';
+            const imgUrl = p.customImage || (typeof getEmbeddedProductImage === 'function' ? getEmbeddedProductImage(p) : 'images/logo.webp') || 'images/logo.webp';
             const displayName = typeof getLocalizedProductName === 'function' ? getLocalizedProductName(p.name) : p.name;
 
             html += `
                 <div class="bg-white rounded-2xl p-3.5 border border-gray-200 shadow-sm hover:shadow-md transition flex flex-col sm:flex-row items-center gap-3.5">
                     <div class="w-20 h-20 bg-gray-50 rounded-xl border border-gray-100 overflow-hidden flex-shrink-0 flex items-center justify-center">
-                        <img src="${imgUrl}" alt="${displayName}" class="w-full h-full object-cover" onerror="this.src='images/logo.png'">
+                        <img src="${imgUrl}" alt="${displayName}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='images/logo.png';">
                     </div>
                     <div class="flex-1 min-w-0 text-center sm:text-left">
                         <div class="text-[10px] font-black text-teal-700 uppercase tracking-wider">${p.brand || 'E-ZONE'} • ${p.category}</div>

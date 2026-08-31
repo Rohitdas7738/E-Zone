@@ -490,12 +490,12 @@
       if (!p) return '';
       const mrp = (p.price * 1.25).toFixed(0);
       const discount = p.discountPercent || 20;
-      const imgUrl = p.image || 'images/logo.png';
+      const imgUrl = p.image || 'images/logo.webp';
 
       return `
         <div class="roxx-product-card-preview" style="margin-top:6px;margin-bottom:6px;">
           <div class="roxx-product-card-img">
-            <img src="${imgUrl}" alt="${p.name}" onerror="this.src='images/logo.png'">
+            <img src="${imgUrl}" alt="${p.name}" onerror="this.onerror=null; this.src='images/logo.png';">
           </div>
           <div class="roxx-product-card-details">
             <div class="roxx-product-card-brand">${p.brand || 'E-ZONE'} • ${p.category || 'Electric'}</div>

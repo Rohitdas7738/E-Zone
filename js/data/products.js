@@ -1,8 +1,8 @@
                 const originalProducts = [
-            {"id":"new-cob-light","name":"COB Light","category":"lights and decoratives light","brand":"Pritam","price":130,"emoji":"💡","spec":"High focus bright light, perfect for interior design.","isWattBulb":true,"images":["product-images/new-cob-light-1.jpg","product-images/new-cob-light-2.jpg"],"subVariantPrices":{"3W":130,"5W":170,"7W":240,"9W":299,"12W":360,"15W":450,"18W":620,"20W":750,"30W":1050,"50W":1470}},
-            {"id":"new-3d-creative-light","name":"3D Creative Light","category":"lights and decoratives light","brand":"Pritam","price":350,"emoji":"💎","spec":"Advanced 3D design that multiplies room aesthetics.","isColorBulb":true,"images":["product-images/new-3d-creative-light.jpg"],"subVariantPrices":{"Cool Day Light":350,"Warm White":280,"Red":320,"Blue":350,"Green":340,"Pink":350,"RGB Multi-Color":499}},
-            {"id":"new-modern-glob-wall-lamp","name":"Modern LED Global Wall Lamp","category":"lights and decoratives light","brand":"Pritam","price":890,"emoji":"🏮","spec":"Global shape wall lamp tailored for modern rooms.","images":["product-images/new-modern-glob-wall-lamp.jpg"]},
-            {"id":"new-modern-chandalier-light","name":"Modern LED Chandelier Light","category":"lights and decoratives light","brand":"Kabyo","price":2199,"emoji":"👑","spec":"Royal and elegant LED chandelier for living rooms.","images":["product-images/new-modern-chandalier-light.jpg"]},
+            {"id":"new-cob-light","name":"COB Light","category":"lights and decoratives light","brand":"Pritam","price":130,"emoji":"💡","spec":"High focus bright light, perfect for interior design.","isWattBulb":true,"images":["product-images/new-cob-light-1.webp","product-images/new-cob-light-2.webp"],"subVariantPrices":{"3W":130,"5W":170,"7W":240,"9W":299,"12W":360,"15W":450,"18W":620,"20W":750,"30W":1050,"50W":1470}},
+            {"id":"new-3d-creative-light","name":"3D Creative Light","category":"lights and decoratives light","brand":"Pritam","price":350,"emoji":"💎","spec":"Advanced 3D design that multiplies room aesthetics.","isColorBulb":true,"images":["product-images/new-3d-creative-light.webp"],"subVariantPrices":{"Cool Day Light":350,"Warm White":280,"Red":320,"Blue":350,"Green":340,"Pink":350,"RGB Multi-Color":499}},
+            {"id":"new-modern-glob-wall-lamp","name":"Modern LED Global Wall Lamp","category":"lights and decoratives light","brand":"Pritam","price":890,"emoji":"🏮","spec":"Global shape wall lamp tailored for modern rooms.","images":["product-images/new-modern-glob-wall-lamp.webp"]},
+            {"id":"new-modern-chandalier-light","name":"Modern LED Chandelier Light","category":"lights and decoratives light","brand":"Kabyo","price":2199,"emoji":"👑","spec":"Royal and elegant LED chandelier for living rooms.","images":["product-images/new-modern-chandalier-light.webp"]},
             {"id":"new-modern-pendant-light","name":"Modern Chandelier Pendant Light","category":"lights and decoratives light","brand":"Kabyo","price":2099,"emoji":"🏮","spec":"Attractive ceiling hanging modern pendant light."},
             {"id":"new-modern-gold-wall-light","name":"Modern LED Wall Light Gold Finish","category":"lights and decoratives light","brand":"Pritam","price":1099,"emoji":"✨","spec":"Gold-finish rich wall light reflecting luxury."},
             {"id":"new-12w-sconce-lamp","name":"12 Watt Sconce Wall Lamp","category":"lights and decoratives light","brand":"Philips","price":1199,"emoji":"💡","spec":"12W bright sconce light, ideal for passages or bedrooms.","isWattBulb":true,"subVariantPrices":{"3W":449,"5W":699,"7W":899,"9W":999,"12W":1199,"15W":1399,"18W":1699,"20W":1999,"30W":2899,"50W":3999}},
@@ -549,7 +549,7 @@
          * If no extension is written, .jpg/.jpeg/.png/.webp/.avif are tried.
          */
         const PRODUCT_IMAGE_FOLDER = "product-images/";
-        const PRODUCT_IMAGE_EXTENSIONS = [".jpg", ".jpeg", ".png", ".webp", ".avif"];
+        const PRODUCT_IMAGE_EXTENSIONS = [".webp", ".jpg", ".jpeg", ".png", ".avif"];
 
         function getEmbeddedProductImage(product) {
             if (!product || !product.id) return "";
@@ -558,8 +558,8 @@
             if (typeof configured !== "string" || !configured.trim()) return "";
             const fileName = configured.trim();
             if (/^(data:|https?:|blob:|\.\.\/|\/)/i.test(fileName)) return fileName;
-            if (/\.(jpe?g|png|webp|avif)$/i.test(fileName)) return PRODUCT_IMAGE_FOLDER + fileName;
-            return PRODUCT_IMAGE_FOLDER + fileName + ".jpg";
+            if (/\.(webp|jpe?g|png|avif)$/i.test(fileName)) return PRODUCT_IMAGE_FOLDER + fileName;
+            return PRODUCT_IMAGE_FOLDER + fileName + ".webp";
         }
 
         function tryNextProductImage(img) {

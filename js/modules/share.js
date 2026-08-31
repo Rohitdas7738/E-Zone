@@ -141,7 +141,7 @@
         if (!modal) return;
 
         const p = data.product;
-        const imgUrl = p.customImage || (typeof getEmbeddedProductImage === 'function' ? getEmbeddedProductImage(p) : '') || 'images/logo.png';
+        const imgUrl = p.customImage || (typeof getEmbeddedProductImage === 'function' ? getEmbeddedProductImage(p) : '') || 'images/logo.webp';
 
         document.getElementById('share-modal-title').textContent = data.displayName;
         document.getElementById('share-modal-brand').textContent = `${data.brand} • ${p.category || 'Electric'}`;
@@ -151,7 +151,7 @@
         const imgEl = document.getElementById('share-modal-img');
         if (imgEl) {
             imgEl.src = imgUrl;
-            imgEl.onerror = function () { this.src = 'images/logo.png'; };
+            imgEl.onerror = function () { this.onerror = null; this.src = 'images/logo.png'; };
         }
 
         // Generate QR code inside modal if qrcodejs is loaded
@@ -303,7 +303,7 @@
                 <div class="p-4 sm:p-5 space-y-4">
                     <div class="bg-slate-50 border border-slate-200/90 rounded-2xl p-3 flex items-center gap-3">
                         <div class="w-16 h-16 rounded-xl bg-white border border-slate-200 overflow-hidden shrink-0 flex items-center justify-center p-1">
-                            <img id="share-modal-img" src="images/logo.png" alt="Product" class="w-full h-full object-contain">
+                            <img id="share-modal-img" src="images/logo.webp" alt="Product" class="w-full h-full object-contain" onerror="this.src='images/logo.png'">
                         </div>
                         <div class="flex-1 min-w-0">
                             <div id="share-modal-brand" class="text-[10px] font-black uppercase tracking-wider text-teal-700 truncate">E-ZONE • Electrical</div>
