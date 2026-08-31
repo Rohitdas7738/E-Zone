@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 50" width="170" height="50">
+  <!-- ZUBBIX SWITCHES Official Enhanced Vector Logo -->
+  <defs>
+    <!-- Brushed Metallic Frame Gradient -->
+    <linearGradient id="metal-frame" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#cbd5e1" />
+      <stop offset="25%" stop-color="#f1f5f9" />
+      <stop offset="50%" stop-color="#94a3b8" />
+      <stop offset="75%" stop-color="#e2e8f0" />
+      <stop offset="100%" stop-color="#64748b" />
+    </linearGradient>
+  </defs>
+
+  <g id="zubbix-logo">
+    <!-- Outer Metallic Brushed Frame -->
+    <rect x="2" y="2" width="166" height="46" rx="7" fill="url(#metal-frame)" stroke="#94a3b8" stroke-width="0.8" />
+
+    <!-- Inner White/Light Acrylic Plate -->
+    <rect x="7" y="6" width="156" height="38" rx="4" fill="#ffffff" stroke="#e2e8f0" stroke-width="0.8" />
+
+    <!-- Main Zubbix Typography (Vibrant Orange Geometric) -->
+    <text x="85" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Arial Black', sans-serif" font-size="20" font-weight="900" fill="#ea580c" text-anchor="middle" letter-spacing="0.8">Zubbix</text>
+
+    <!-- Registered Trademark ® Symbol -->
+    <circle cx="134" cy="18" r="2.2" fill="none" stroke="#475569" stroke-width="0.6" />
+    <text x="134" y="19.4" font-family="Arial, sans-serif" font-size="2.8" font-weight="bold" fill="#475569" text-anchor="middle">R</text>
+
+    <!-- Subtitle: SWITCHES with Flanking Orange Accent Lines -->
+    <!-- Left Accent Lines -->
+    <line x1="20" y1="36.5" x2="42" y2="36.5" stroke="#ea580c" stroke-width="1.2" stroke-linecap="round" />
+    <line x1="20" y1="39.2" x2="42" y2="39.2" stroke="#ea580c" stroke-width="0.8" stroke-linecap="round" />
+
+    <!-- SWITCHES Charcoal Text -->
+    <text x="85" y="40.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="900" fill="#334155" text-anchor="middle" letter-spacing="3.2">SWITCHES</text>
+
+    <!-- Right Accent Lines -->
+    <line x1="128" y1="36.5" x2="150" y2="36.5" stroke="#ea580c" stroke-width="1.2" stroke-linecap="round" />
+    <line x1="128" y1="39.2" x2="150" y2="39.2" stroke="#ea580c" stroke-width="0.8" stroke-linecap="round" />
+  </g>
+</svg>

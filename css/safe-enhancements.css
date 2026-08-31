@@ -1,0 +1,3 @@
+        /* During a browser/device view switch, restore the page instead of showing a fresh splash. */
+        html.ezone-preserve-reload #rox-splash{display:none!important}
+        #payment-qr-generator{position:fixed;left:-100000px;top:-100000px;width:280px;height:280px;opacity:0;pointer-events:none;overflow:hidden}

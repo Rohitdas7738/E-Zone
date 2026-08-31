@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 178 46" width="178" height="46">
+  <!-- ECOLINK Official Logo - Fixed E & C Spacing (No Submersion) -->
+  <g transform="translate(1, 2)">
+    <!-- ECO in Signature Green -->
+    <!-- E (Clean separated bounds x=3 to x=19) -->
+    <path d="M 3,8 L 19,8 L 19,14 L 9.5,14 L 9.5,19 L 18,19 L 18,25 L 9.5,25 L 9.5,30 L 19.5,30 L 19.5,36 L 3,36 Z" fill="#2eb846" />
+
+    <!-- C (Starts clearly at x=23, ends at x=44) -->
+    <path d="M 43,13.5 C 41,9.5 36.5,8 32,8 C 24.5,8 22.5,14 22.5,22 C 22.5,30 24.5,36 32,36 C 37,36 41.5,34 43,30 L 38.5,26.5 C 37,29 35,30.5 32,30.5 C 28,30.5 28,26.5 28,22 C 28,17.5 28,13.5 32,13.5 C 34.5,13.5 37,14.8 38.5,17.2 Z" fill="#2eb846" />
+
+    <!-- O (Starts clearly at x=47, ends at x=69) -->
+    <path d="M 58,8 C 49,8 46.5,14 46.5,22 C 46.5,30 49,36 58,36 C 67,36 69.5,30 69.5,22 C 69.5,14 67,8 58,8 Z M 58,13.5 C 63,13.5 64,17.5 64,22 C 64,26.5 63,30.5 58,30.5 C 53,30.5 52,26.5 52,22 C 52,17.5 53,13.5 58,13.5 Z" fill="#2eb846" />
+
+    <!-- LiNK in Signature Royal Purple -->
+    <!-- L (x=74 to x=90) -->
+    <path d="M 74,8 L 80,8 L 80,30.5 L 91,30.5 L 91,36 L 74,36 Z" fill="#58248c" />
+
+    <!-- i (x=95 to x=101) -->
+    <path d="M 95,8 L 101,8 L 101,36 L 95,36 Z" fill="#58248c" />
+
+    <!-- N with Lightbulb cutout (x=105 to x=138) -->
+    <path d="M 105,8 L 134,8 C 137.5,8 140,10.5 140,14 L 140,36 L 132.5,36 L 132.5,28 C 132.5,24 131.5,21 129.5,18 C 128,16 126.5,15 124,15 C 121.5,15 120,16 118.5,18 C 116.5,21 115.5,24 115.5,28 L 115.5,36 L 105,36 Z" fill="#58248c" />
+
+    <!-- Lightbulb Cutout in N -->
+    <circle cx="124" cy="20" r="5.8" fill="#ffffff" />
+    <path d="M 119.8,22 C 119.8,25 121.2,27 122.2,29 L 125.8,29 C 126.8,27 128.2,25 128.2,22 Z" fill="#ffffff" />
+    <!-- Bulb Base Filament/Threads -->
+    <rect x="122.2" y="30.2" width="3.6" height="1.6" rx="0.6" fill="#58248c" />
+    <path d="M 122.5,33 C 122.5,34 125.5,34 125.5,33 Z" fill="#58248c" />
+
+    <!-- K (x=144 to x=168) -->
+    <path d="M 144,8 L 150,8 L 150,20 L 157.5,8 L 166,8 L 156,23 L 167,36 L 157.5,36 L 150,25.5 L 150,36 L 144,36 Z" fill="#58248c" />
+  </g>
+</svg>

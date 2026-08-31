@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 145 36" width="145" height="36">
+  <!-- Polycab Brand Logo -->
+  <g>
+    <!-- Polycab Red Hexagon / Polygon Symbol -->
+    <polygon points="16,5 26,11 26,23 16,29 6,23 6,11" fill="#e11d48"/>
+    <polygon points="16,9 22,13 22,21 16,25 10,21 10,13" fill="#ffffff"/>
+    <circle cx="16" cy="17" r="3.5" fill="#e11d48"/>
+    <!-- POLYCAB Text -->
+    <text x="34" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Arial Black', sans-serif" font-size="16" font-weight="900" letter-spacing="1" fill="#e11d48">POLYCAB</text>
+  </g>
+</svg>

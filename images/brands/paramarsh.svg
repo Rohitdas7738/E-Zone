@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 38" width="160" height="38">
+  <!-- PARAMARSH Official Enhanced Vector Logo -->
+  <g id="paramarsh-brand">
+    <!-- Golden Brass Diamond/Gear Emblem on Left -->
+    <g transform="translate(6, 4)">
+      <!-- Golden Diamond/Hexagon shape -->
+      <polygon points="15,2 26,8 26,22 15,28 4,22 4,8" fill="#b45309" stroke="#78350f" stroke-width="1.5" stroke-linejoin="round"/>
+      <!-- Inner Solid Brass Core Monogram 'P' -->
+      <path d="M 11,9 L 16.5,9 C 18.5,9 19.5,10 19.5,12 C 19.5,14 18.5,15 16.5,15 L 13.5,15 L 13.5,21 L 11,21 Z M 13.5,11 L 13.5,13 L 16,13 C 16.8,13 17.2,12.6 17.2,12 C 17.2,11.4 16.8,11 16,11 Z" fill="#fef3c7"/>
+    </g>
+
+    <!-- PARAMARSH Typography -->
+    <text x="40" y="25" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Arial Black', sans-serif" font-size="16" font-weight="900" fill="#b45309" letter-spacing="0.5">PARAMARSH</text>
+  </g>
+</svg>

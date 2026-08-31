@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 38" width="160" height="38">
+  <!-- NITCAP Official Enhanced Vector Logo -->
+  <g id="nitcap-brand">
+    <!-- Hex / Screw Head Icon Badge on Left -->
+    <g transform="translate(6, 4)">
+      <!-- Hexagonal / Shield shape in Blue/Cyan Gradient -->
+      <polygon points="15,1 27,8 27,22 15,29 3,22 3,8" fill="#0284c7" stroke="#0369a1" stroke-width="1.5" stroke-linejoin="round"/>
+      <!-- Inner Screw Thread / Fastener Accent -->
+      <path d="M 9,11 L 21,11 M 11,15 L 19,15 M 13,19 L 17,19" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+      <!-- Small spark / precision star dot -->
+      <circle cx="15" cy="7" r="1.5" fill="#38bdf8"/>
+    </g>
+
+    <!-- NITCAP Bold Modern Typography -->
+    <text x="42" y="25" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Arial Black', sans-serif" font-size="20" font-weight="900" fill="#0284c7" letter-spacing="1">NITCAP</text>
+  </g>
+</svg>

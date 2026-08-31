@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 56" width="180" height="56">
+  <!-- PAHADI Official Enhanced Vector Logo -->
+  <g id="pahadi-brand" transform="translate(4, 2)">
+    <!-- Dynamic Angled Orbital Oval Swoosh Ring -->
+    <path d="M 12,38 C -2,36 1,28 18,24 C 42,18 90,14 136,13 C 158,12.5 168,14.5 168,19 C 168,24 148,31 116,36 C 80,41.5 38,45 18,44 C 13.5,43.5 11,41 12,38 Z" fill="none" stroke="#0044cc" stroke-width="4.2" stroke-linecap="round" />
+
+    <!-- Solid Tapered Wing on Left Curve -->
+    <path d="M 10,40 C 2,38 2,29 20,24 C 36,20 20,27 10,34 C 4,38 6,40 10,40 Z" fill="#0044cc" />
+
+    <!-- Solid Tapered Wing on Right Tip -->
+    <path d="M 142,13 C 160,13 170,16 168,20 C 164,25 150,29 136,32 C 152,27 163,22 163,18 C 163,15 155,13.5 142,13 Z" fill="#0044cc" />
+
+    <!-- Hand-Drawn Calligraphic 'Pahadi' Typography -->
+    <g transform="rotate(-6 85 28)">
+      <!-- Main Text in Royal Blue Calligraphic Script -->
+      <text x="82" y="34" font-family="'Brush Script MT', 'Segoe Script', 'Lucida Handwriting', 'Caveat', cursive, sans-serif" font-size="34" font-weight="bold" font-style="italic" fill="#0044cc" text-anchor="middle" letter-spacing="1">Pahadi</text>
+    </g>
+
+    <!-- Registered Symbol ® -->
+    <circle cx="164" cy="9" r="3.2" fill="none" stroke="#0044cc" stroke-width="0.8" />
+    <text x="164" y="11" font-family="Arial, sans-serif" font-size="4.2" font-weight="bold" fill="#0044cc" text-anchor="middle">R</text>
+  </g>
+</svg>

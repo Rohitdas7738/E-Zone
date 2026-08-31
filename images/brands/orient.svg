@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 165 46" width="165" height="46">
+  <!-- ORIENT ELECTRIC Official Enhanced Vector Logo -->
+  <g id="orient-electric-brand">
+    <!-- Left Iconic Orient 'O' Emblem in Signature Orange -->
+    <g transform="translate(4, 3)">
+      <!-- Outer rounded block with open bottom-right loop -->
+      <path d="M 17,2 C 7,2 2,7 2,17 C 2,27 7,32 17,32 L 32,32 C 37,32 40,28 40,23 C 40,16 35,14 30,14 L 30,20 C 32,20 34,21 34,23 C 34,25.5 32,26.5 29.5,26.5 L 17,26.5 C 10,26.5 7.5,23.5 7.5,17 C 7.5,10.5 10,7.5 17,7.5 L 29.5,7.5 C 33,7.5 36,9 36,13 L 41.5,13 C 41.5,6 36.5,2 29.5,2 Z" fill="#ff4f00" />
+      <!-- Inner core loop -->
+      <rect x="13.5" y="10.5" width="13" height="13" rx="3.5" fill="#ff4f00" />
+    </g>
+
+    <!-- 'orient' Bold Lowercase Typography -->
+    <text x="54" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Arial Black', sans-serif" font-size="21" font-weight="900" fill="#ff4f00" letter-spacing="-0.4">orient</text>
+
+    <!-- 'electric' Lowercase Subtitle -->
+    <text x="55" y="37.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" fill="#ff4f00" letter-spacing="0.5">electric</text>
+  </g>
+</svg>

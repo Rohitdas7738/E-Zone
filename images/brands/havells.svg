@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 165 42" width="165" height="42">
+  <!-- HAVELLS Official Enhanced Vector Logo -->
+  <g id="havells-brand">
+    <!-- Iconic Havells 'H' Dual-Lobe Emblem on Left -->
+    <g transform="translate(2, 3)">
+      <!-- Left Back Shadow Lobe -->
+      <path d="M 11,3 C 5.5,9 5.5,27 11,33 C 14.5,33 16.5,30 16.5,25.5 C 13,22.5 13,13.5 16.5,10.5 C 16.5,6 14.5,3 11,3 Z" fill="#b91c1c" />
+      <!-- Left Inner Highlight Curve -->
+      <path d="M 11,5 C 8,9 8,27 11,31 C 12.5,31 14,28 14.5,24.5 C 12,21 12,15 14.5,11.5 C 14,8 12.5,5 11,5 Z" fill="#ef4444" />
+
+      <!-- Main Front 'H' Bridge and Right Lobe -->
+      <path d="M 14,3 C 21,3 24,10 24,14 C 24,16.5 21.5,18 16.5,18 C 21.5,18 24,19.5 24,22 C 24,26 21,33 14,33 C 23,33 32,27.5 32,18 C 32,8.5 23,3 14,3 Z" fill="#e31b23" />
+    </g>
+
+    <!-- 'HAVELLS' Bold Red Typography -->
+    <text x="40" y="27.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Arial Black', sans-serif" font-size="20" font-weight="900" fill="#e31b23" letter-spacing="1.2">HAVELLS</text>
+  </g>
+</svg>

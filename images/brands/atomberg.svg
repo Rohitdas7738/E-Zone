@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 42" width="170" height="42">
+  <!-- ATOMBERG Official Enhanced Vector Logo with Symbol -->
+  <g id="atomberg-brand">
+    <!-- Left Golden Yellow Circular Emblem -->
+    <g transform="translate(3, 3)">
+      <!-- Yellow/Amber Circle Background -->
+      <circle cx="18" cy="18" r="17" fill="#f59e0b" />
+
+      <!-- Stylized Atomberg 'a' Monogram inside Circle -->
+      <!-- Center Core Dot -->
+      <circle cx="18" cy="19.5" r="2.6" fill="#111827" />
+
+      <!-- Upper Loop / Arch -->
+      <path d="M 12,22 C 11.5,14 18,11.5 22.5,14 C 25,15.5 25.5,18.5 22,19 C 18.5,19.5 13.5,18 13.5,23 C 13.5,27.5 22,27.5 25.5,23.5" fill="none" stroke="#111827" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+
+    <!-- 'atomberg' Bold Modern Lowercase Typography -->
+    <text x="44" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Arial Black', sans-serif" font-size="21.5" font-weight="900" fill="#111827" letter-spacing="-0.3">atomberg</text>
+  </g>
+</svg>

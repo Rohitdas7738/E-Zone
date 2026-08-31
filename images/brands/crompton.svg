@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 36" width="150" height="36">
+  <!-- Crompton Brand Logo -->
+  <g>
+    <!-- Crompton C emblem -->
+    <path d="M22 9 C15 7, 7 12, 7 18 C7 24, 15 29, 22 27" fill="none" stroke="#0057b8" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="21" cy="18" r="3" fill="#0057b8"/>
+    <!-- Crompton Text -->
+    <text x="32" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Arial Black', sans-serif" font-size="16" font-weight="900" letter-spacing="0.5" fill="#0057b8">Crompton</text>
+  </g>
+</svg>

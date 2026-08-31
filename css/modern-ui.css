@@ -1,0 +1,710 @@
+/* =========================================================
+   E-ZONE RESPONSIVE DESIGN SYSTEM & MODERN UI LAYER
+   Fully Optimized for:
+   - Smartphones 5" to 7" (320px - 767px)
+   - Tablets 8" to 13" (768px - 1199px)
+   - Laptops & Desktops (1200px - 1599px)
+   - Large PCs & 4K Displays (1600px+)
+   ========================================================= */
+
+:root {
+  --ez-bg: #f6f8fb;
+  --ez-surface: #ffffff;
+  --ez-ink: #0f172a;
+  --ez-muted: #64748b;
+  --ez-line: rgba(15, 23, 42, 0.09);
+  --ez-teal: #0f766e;
+  --ez-deep: #062f2b;
+  --ez-yellow: #fbbf24;
+  --ez-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+  --ez-shadow-hover: 0 16px 40px rgba(15, 23, 42, 0.12);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(20, 184, 166, 0.07), transparent 26rem),
+    radial-gradient(circle at 92% 12%, rgba(251, 191, 36, 0.07), transparent 24rem),
+    var(--ez-bg) !important;
+  color: var(--ez-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  min-width: 320px;
+}
+
+/* Full-Bleed Headers, Navigation and Footer (100% edge-to-edge) */
+nav,
+.bg-cyan-950,
+footer {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Fluid Container Constraint for Content Sections on Ultra-Wide Desktops */
+.mx-4.md\:mx-12,
+#products-section,
+#categories-section,
+#brands-section,
+#services-section,
+footer > div {
+  max-width: 1600px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* Touch & Interaction transitions */
+button, a, input, select, textarea {
+  transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  touch-action: manipulation;
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid rgba(251, 191, 36, 0.5) !important;
+  outline-offset: 2px !important;
+}
+
+/* ================= HEADER & TOP BAR ================= */
+nav {
+  box-shadow: 0 10px 35px rgba(2, 47, 46, 0.15) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+
+#search-input {
+  min-height: 44px !important;
+  border-color: rgba(15, 118, 110, 0.22) !important;
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.03), 0 3px 14px rgba(15, 118, 110, 0.04) !important;
+}
+
+#search-input:focus {
+  box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.12), 0 8px 22px rgba(15, 118, 110, 0.08) !important;
+}
+
+#search-input + button {
+  min-height: 44px !important;
+  min-width: 44px;
+}
+
+#search-mic-btn {
+  min-height: 44px !important;
+  min-width: 46px;
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+  border-right: 1px solid rgba(15, 118, 110, 0.35);
+  background: #0b5f59;
+  color: #fff;
+}
+
+#search-mic-btn:hover {
+  background: #0f766e;
+  transform: translateY(-1px);
+}
+
+#search-mic-btn.listening {
+  background: #dc2626 !important;
+  animation: searchMicPulse 1s infinite;
+}
+
+@keyframes searchMicPulse {
+  50% { box-shadow: 0 0 0 6px rgba(220, 38, 38, 0.2); }
+}
+
+.search-voice-status {
+  font-size: 10px;
+  font-weight: 800;
+  color: #0f766e;
+  margin-top: 4px;
+  min-height: 14px;
+  text-align: center;
+}
+
+/* ================= SECTION STYLING ================= */
+#categories-section, #products-section, #services-section {
+  position: relative;
+}
+
+#categories-section > div:first-child h2,
+#products-section > div:first-child,
+#brands-section,
+#services-section {
+  filter: drop-shadow(0 6px 18px rgba(15, 23, 42, 0.04));
+}
+
+#brands-section {
+  background: linear-gradient(145deg, #062f2b 0%, #064e49 55%, #083b48 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  box-shadow: 0 16px 40px rgba(2, 47, 46, 0.16) !important;
+  border-radius: 18px !important;
+}
+
+#brands-section h2 {
+  font-size: 0.75rem !important;
+  letter-spacing: 0.18em !important;
+  color: #fbbf24 !important;
+  text-shadow: 0 1px 10px rgba(251, 191, 36, 0.12);
+}
+
+/* ================= CATEGORY CARDS GRID ================= */
+#category-cards-grid {
+  display: grid;
+  gap: 12px;
+}
+
+#category-cards-grid > * {
+  transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.24s ease;
+  border-radius: 14px !important;
+  min-width: 0;
+}
+
+#category-cards-grid > *:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(15, 118, 110, 0.14) !important;
+}
+
+/* Center lower 3 category cards on 9-column grid layout (Desktops, Laptops & PCs >= 1024px) */
+@media (min-width: 1024px) {
+  #category-cards-grid {
+    grid-template-columns: repeat(9, minmax(0, 1fr)) !important;
+  }
+  #category-cards-grid > :nth-child(10) {
+    grid-column-start: 3 !important;
+  }
+}
+
+/* ================= PRODUCT CARDS GRID ================= */
+#products-grid-container {
+  display: grid;
+  gap: 14px;
+}
+
+#products-grid-container > div {
+  border: 1px solid var(--ez-line) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--ez-shadow) !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.24s ease;
+}
+
+#products-grid-container > div:hover {
+  box-shadow: var(--ez-shadow-hover) !important;
+  transform: translateY(-4px);
+}
+
+#products-grid-container img {
+  width: 100%;
+  height: clamp(120px, 36vw, 176px);
+  object-fit: cover;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#products-grid-container > div:hover img {
+  transform: scale(1.04);
+}
+
+#products-grid-container button,
+#products-grid-container a {
+  border-radius: 10px !important;
+}
+
+#products-grid-container .rox-product-btn {
+  background: linear-gradient(135deg, #fcd34d, #f59e0b) !important;
+  color: #422006 !important;
+  border: 1px solid rgba(180, 83, 9, 0.22) !important;
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.22) !important;
+  font-weight: 900 !important;
+  padding: 8px 10px !important;
+  min-height: 36px;
+}
+
+#products-grid-container .rox-product-btn:hover {
+  background: linear-gradient(135deg, #fde68a, #f59e0b) !important;
+  color: #3b2204 !important;
+  box-shadow: 0 10px 24px rgba(245, 158, 11, 0.32) !important;
+  transform: translateY(-2px) !important;
+}
+
+#products-grid-container .rox-product-btn i {
+  color: #713f12 !important;
+}
+
+.brand-discount-badge {
+  border: 1px solid rgba(180, 83, 9, 0.16) !important;
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.22) !important;
+}
+
+/* ================= BRAND FILTERS ================= */
+#brand-filter-container {
+  gap: 0.5rem !important;
+}
+
+.brand-filter-btn {
+  min-height: 38px !important;
+  padding: 0.45rem 1.15rem !important;
+  border-radius: 8px !important;
+  font-weight: 900 !important;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  user-select: none !important;
+}
+
+.brand-filter-btn:hover {
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08) !important;
+  transform: translateY(-1px) !important;
+}
+
+.brand-filter-btn.active-brand {
+  border: 2px solid #0f766e !important;
+  background: #f0fdfa !important;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.16), 0 4px 14px rgba(15, 118, 110, 0.14) !important;
+  transform: translateY(-1.5px) !important;
+}
+
+
+
+#roxx-ai-launcher {
+  bottom: calc(18px + var(--safe-bottom)) !important;
+  left: 18px !important;
+}
+
+/* ================= MODALS RESPONSIVENESS ================= */
+#cart-summary-modal,
+#rox-product-modal,
+#subitem-modal,
+#admin-pin-modal,
+#admin-pricing-modal,
+#admin-product-editor-modal,
+#add-product-modal {
+  padding: 12px !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+#cart-summary-modal > div,
+.rox-dialog,
+#subitem-modal > div,
+#admin-pin-modal > div,
+#admin-product-editor-modal > div,
+#add-product-modal > div {
+  max-height: calc(100vh - 32px) !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+#payment-qr-image {
+  width: clamp(170px, 46vw, 240px) !important;
+  height: auto !important;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background:
+    radial-gradient(circle at 15% 0%, rgba(20, 184, 166, 0.14), transparent 25rem),
+    radial-gradient(circle at 90% 30%, rgba(251, 191, 36, 0.08), transparent 22rem),
+    linear-gradient(145deg, #031f20, #062f2e 55%, #041f2a) !important;
+  border-top: 1px solid rgba(45, 212, 191, 0.22) !important;
+  box-shadow: 0 -18px 45px rgba(2, 47, 46, 0.08);
+}
+
+.ezone-powered-by-rox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.16), rgba(245, 158, 11, 0.07));
+  border: 1px solid rgba(251, 191, 36, 0.34);
+  color: #fde68a;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ezone-powered-by-rox .rox-mini-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fbbf24;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.15), 0 0 12px rgba(251, 191, 36, 0.8);
+  animation: ezRoxDot 1.8s ease-in-out infinite;
+}
+
+@keyframes ezRoxDot {
+  50% { transform: scale(1.25); opacity: 0.72; }
+  100% { transform: scale(1); }
+}
+
+/* =========================================================
+   BREAKPOINT 1: SMARTPHONES 5" TO 7" (320px to 767px)
+   ========================================================= */
+
+/* Extra-small to standard smartphones (320px - 480px, ~5" to 6.2" screens) */
+@media (max-width: 480px) {
+  nav {
+    padding: 10px 12px !important;
+    gap: 10px !important;
+  }
+
+  .real-logo-e {
+    width: 60px !important;
+    height: 48px !important;
+  }
+
+  nav h1 {
+    font-size: 1.45rem !important;
+  }
+
+  /* Full-width seamless search */
+  #search-input {
+    font-size: 0.82rem !important;
+    padding-left: 10px !important;
+    padding-right: 8px !important;
+  }
+
+  /* 2-Column Product Grid with comfortable card proportions */
+  #products-grid-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  #products-grid-container > div {
+    border-radius: 12px !important;
+    padding: 0 !important;
+  }
+
+  #products-grid-container img {
+    height: clamp(110px, 35vw, 140px) !important;
+  }
+
+  /* 2-Column Category Grid */
+  #category-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  #category-cards-grid > div {
+    padding: 10px 8px !important;
+  }
+
+  #category-cards-grid .w-10.h-10 {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 1rem !important;
+  }
+
+  /* Horizontal touch swipe for brand buttons */
+  #brands-section {
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+    padding: 12px 10px !important;
+    border-radius: 14px !important;
+  }
+
+  #brand-filter-container {
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    padding: 4px 2px 8px !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  #brand-filter-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .brand-filter-btn {
+    flex: 0 0 auto;
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+    min-height: 34px !important;
+  }
+
+  /* Section margins */
+  .mx-4.md\:mx-12,
+  #products-section,
+  #categories-section,
+  #services-section {
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+  }
+
+
+
+  #roxx-ai-launcher {
+    left: 10px !important;
+    bottom: calc(12px + var(--safe-bottom)) !important;
+    padding: 8px 14px !important;
+    font-size: 11px !important;
+  }
+
+  footer {
+    padding-bottom: calc(4.5rem + var(--safe-bottom)) !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
+
+/* Medium smartphones (481px to 767px, ~6.5" to 7" screens and landscape phones) */
+@media (min-width: 481px) and (max-width: 767px) {
+  #products-grid-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 11px !important;
+  }
+
+  #category-cards-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  #products-grid-container img {
+    height: 155px !important;
+  }
+
+  .mx-4.md\:mx-12,
+  #products-section,
+  #categories-section,
+  #brands-section,
+  #services-section {
+    margin-left: 14px !important;
+    margin-right: 14px !important;
+  }
+
+  #brand-filter-container {
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    padding-bottom: 6px !important;
+    scrollbar-width: none;
+  }
+  #brand-filter-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  footer {
+    padding-bottom: calc(4.5rem + var(--safe-bottom)) !important;
+  }
+}
+
+/* =========================================================
+   BREAKPOINT 2: TABLETS (768px to 1023px)
+   ========================================================= */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  nav {
+    padding: 14px 24px !important;
+  }
+
+  #products-grid-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 13px !important;
+  }
+
+  #products-grid-container img {
+    height: 165px !important;
+  }
+
+  #category-cards-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  #category-cards-grid > :nth-child(10) {
+    grid-column-start: auto !important;
+  }
+
+  .mx-4.md\:mx-12,
+  #products-section,
+  #categories-section,
+  #brands-section,
+  #services-section {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  #brand-filter-container {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+}
+
+/* =========================================================
+   BREAKPOINT 3: LAPTOPS & STANDARD PCS (1024px to 1599px)
+   ========================================================= */
+@media (min-width: 1024px) and (max-width: 1599px) {
+  #products-grid-container {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  #products-grid-container img {
+    height: 175px !important;
+  }
+
+  #category-cards-grid {
+    grid-template-columns: repeat(9, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  #category-cards-grid > :nth-child(10) {
+    grid-column-start: 3 !important;
+  }
+
+  .mx-4.md\:mx-12,
+  #products-section,
+  #categories-section,
+  #brands-section,
+  #services-section {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+    max-width: 1600px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* =========================================================
+   BREAKPOINT 4: LARGE MONITORS, PCS & 4K DISPLAYS (1600px+)
+   ========================================================= */
+@media (min-width: 1600px) {
+  #products-grid-container {
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+  }
+
+  #products-grid-container img {
+    height: 180px !important;
+  }
+
+  #category-cards-grid {
+    grid-template-columns: repeat(9, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+
+  #category-cards-grid > :nth-child(10) {
+    grid-column-start: 3 !important;
+  }
+
+  .mx-4.md\:mx-12,
+  #products-section,
+  #categories-section,
+  #brands-section,
+  #services-section {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+    max-width: 1600px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* =========================================================
+   UNIVERSAL PRODUCT SHARE BUTTON & MODAL STYLES
+   ========================================================= */
+
+.product-share-btn {
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.product-share-btn:hover {
+  transform: scale(1.15) !important;
+  box-shadow: 0 6px 16px rgba(15, 118, 110, 0.28) !important;
+  color: #0f766e !important;
+  background-color: #ffffff !important;
+}
+
+.product-share-btn:active {
+  transform: scale(0.90) !important;
+}
+
+#share-product-modal {
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+#share-product-modal.flex {
+  animation: shareModalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+#share-product-modal > div {
+  animation: shareModalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes shareModalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shareModalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Social Share Button Micro-interactions */
+#share-product-modal a[id^="share-btn-"] {
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+#share-product-modal a[id^="share-btn-"]:hover {
+  transform: translateY(-3px) scale(1.04);
+}
+
+#share-product-modal a[id^="share-btn-"]:active {
+  transform: scale(0.95);
+}
+
+/* Global Toast Styling */
+#ezone-global-toast {
+  box-shadow: 0 12px 30px rgba(4, 47, 46, 0.35), 0 4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ================= ACCESSIBILITY & MOTION PREFERENCES ================= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+

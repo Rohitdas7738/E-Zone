@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title id="page-title">Product Details | E-ZONE Electric</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="shortcut icon" href="images/logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modern-ui.css">
+    <link rel="stylesheet" href="css/safe-enhancements.css">
+    <link rel="stylesheet" href="css/roxx-ai.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="js/modules/state-preserver.js"></script>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 min-h-screen flex flex-col justify-between">
+
+    <!-- TOP NAVIGATION BAR -->
+    <nav class="bg-black text-white w-full px-4 sm:px-6 md:px-8 lg:px-12 py-3 flex flex-col md:flex-row justify-between items-center gap-3 shadow-xl sticky top-0 z-40">
+        <div class="flex items-center justify-between w-full md:w-auto">
+            <div class="flex items-center gap-3 select-none">
+                <a href="index.html" class="real-logo-e block hover:scale-105 transition-transform duration-200" aria-label="E-ZONE Home">
+                    <img src="images/logo.png" alt="E-ZONE Electric Logo" class="h-9 w-auto object-contain filter drop-shadow-[0_2px_10px_rgba(245,158,11,0.35)]">
+                </a>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-black tracking-widest leading-none text-white font-sans">
+                        E-Z<span class="text-amber-500 text-xl mx-0.5">•</span>NE
+                    </h1>
+                    <p class="text-[9px] tracking-wider text-teal-400 uppercase font-semibold">Electric Zone Shop</p>
+                </div>
+            </div>
+            <div class="flex md:hidden items-center gap-3">
+                <a href="index.html" class="text-xs font-bold text-teal-400 bg-teal-950/80 border border-teal-700 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                    <i class="fas fa-arrow-left"></i> <span>Catalog</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4 text-xs font-bold uppercase tracking-wider text-gray-300">
+            <a href="index.html" class="hover:text-amber-400 flex items-center gap-1.5 transition">
+                <i class="fas fa-arrow-left text-sm"></i> <span>Back to Store</span>
+            </a>
+            <a href="index.html#categories-section" class="hover:text-amber-400 flex items-center gap-1.5 transition hidden sm:flex">
+                <i class="fas fa-boxes text-sm"></i> <span>Categories</span>
+            </a>
+            <a href="/download-pdf" class="hover:text-amber-400 flex items-center gap-1.5 transition" title="Download Product Catalogue PDF" download="E-Zone_Products_Price_List.pdf">
+                <i class="fas fa-file-pdf text-red-400 text-sm"></i> <span>PDF List</span>
+            </a>
+            
+            <!-- Language Selector -->
+            <div class="relative inline-block text-left">
+                <button onclick="toggleLangMenu()" class="bg-teal-800 hover:bg-teal-700 px-3 py-1 rounded flex items-center gap-1.5 transition cursor-pointer text-xs text-white">
+                    <i class="fas fa-globe"></i> <span id="current-lang-label">বাংলা / English</span>
+                </button>
+                <div id="lang-menu" class="hidden absolute right-0 mt-2 w-40 bg-white text-gray-800 rounded-xl shadow-xl border border-gray-200 z-50 overflow-hidden">
+                    <button onclick="changeLanguage('en')" class="w-full text-left px-4 py-2 hover:bg-teal-50 border-b border-gray-100 cursor-pointer font-bold text-xs">English</button>
+                    <button onclick="changeLanguage('bn')" class="w-full text-left px-4 py-2 hover:bg-teal-50 border-b border-gray-100 cursor-pointer font-bold text-xs">Bengali (বাঙালী)</button>
+                    <button onclick="changeLanguage('hi')" class="w-full text-left px-4 py-2 hover:bg-teal-50 border-b border-gray-100 cursor-pointer font-bold text-xs">Hindi (हिंदी)</button>
+                </div>
+            </div>
+
+            <!-- Cart Trigger -->
+            <button type="button" onclick="openCartWhatsApp()" class="hover:text-amber-400 flex items-center gap-1.5 text-gray-300 transition cursor-pointer relative bg-teal-900/60 border border-teal-700 px-3 py-1.5 rounded-lg">
+                <i class="fas fa-shopping-bag text-base"></i>
+                <span>Bag</span>
+                <span id="nav-cart-count" class="bg-amber-500 text-cyan-950 font-black text-[10px] min-w-[18px] h-[18px] px-1 flex items-center justify-center rounded-full ml-1">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MAIN PRODUCT DETAILS CONTENT CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full">
+        
+        <!-- Breadcrumb Navigation -->
+        <nav class="flex items-center text-xs font-semibold text-slate-500 mb-6 gap-2 flex-wrap" aria-label="Breadcrumb">
+            <a href="index.html" class="hover:text-teal-700 flex items-center gap-1"><i class="fas fa-home"></i> Home</a>
+            <span class="text-slate-300">/</span>
+            <a href="index.html#categories-section" id="bc-category" class="hover:text-teal-700 capitalize">Category</a>
+            <span class="text-slate-300">/</span>
+            <span id="bc-product-name" class="text-slate-900 font-bold truncate max-w-xs sm:max-w-md">Product Details</span>
+        </nav>
+
+        <!-- Product Core Hero Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
+            
+            <!-- LEFT COLUMN: IMAGE DISPLAY & ZOOM -->
+            <div class="lg:col-span-6 space-y-4">
+                <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-4 sm:p-6 relative overflow-hidden group">
+                    <!-- Brand Badge Overlay -->
+                    <div class="absolute top-4 left-4 z-10 bg-white/95 backdrop-blur border border-slate-200/80 shadow-sm rounded-xl px-3 py-1.5 flex items-center justify-center min-h-[36px] max-w-[130px]" id="product-brand-badge">
+                        <!-- Official Brand Logo Injected Here -->
+                    </div>
+
+                    <!-- Category Pill & Share Button Overlay -->
+                    <div class="absolute top-4 right-4 z-10 flex items-center gap-2">
+                        <button type="button" id="detail-share-btn-top" onclick="event.stopPropagation(); shareProduct(currentProduct ? currentProduct.id : getQueryProductId(), event)" class="w-8 h-8 rounded-full bg-white/95 hover:bg-white shadow-md border border-slate-200 text-slate-700 hover:text-teal-700 flex items-center justify-center transition active:scale-95 cursor-pointer" title="Share this Product" aria-label="Share this Product">
+                            <i class="fas fa-share-alt text-xs"></i>
+                        </button>
+                        <div class="bg-teal-50 border border-teal-200 text-teal-800 text-[11px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-sm" id="product-category-badge">
+                            Category
+                        </div>
+                    </div>
+
+                    <!-- Main Image Display -->
+                    <div class="w-full aspect-square max-h-[420px] rounded-2xl bg-slate-50 flex items-center justify-center overflow-hidden relative cursor-zoom-in" id="main-image-container" onclick="openFullscreenImage()">
+                        <img id="product-main-image" src="" alt="Product Image" class="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105" onerror="handleProductImageFallback(this)">
+                        
+                        <div class="absolute bottom-3 right-3 bg-slate-900/80 backdrop-blur text-white text-[11px] font-bold px-3 py-1 rounded-full shadow pointer-events-none flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition">
+                            <i class="fas fa-search-plus"></i> <span>Tap to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <!-- Multi-Angle Image Gallery Strip -->
+                    <div id="product-gallery-strip" class="mt-3.5 pt-3 border-t border-slate-100 hidden">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[11px] font-bold text-slate-700 flex items-center gap-1.5"><i class="fas fa-images text-teal-700"></i> Multiple Views / Angles:</span>
+                            <span class="text-[10px] text-slate-400 font-medium">Click to preview angle</span>
+                        </div>
+                        <div id="product-gallery-thumbnails" class="flex items-center gap-2.5 overflow-x-auto pb-1"></div>
+                    </div>
+                </div>
+
+                <!-- Product Trust Highlights Strip -->
+                <div class="grid grid-cols-3 gap-3">
+                    <div class="bg-white border border-slate-200 rounded-2xl p-3 text-center">
+                        <i class="fas fa-shield-check text-teal-700 text-xl mb-1 block"></i>
+                        <p class="text-[11px] font-bold text-slate-800">100% Genuine</p>
+                        <p class="text-[9px] text-slate-500">Official Brand Tested</p>
+                    </div>
+                    <div class="bg-white border border-slate-200 rounded-2xl p-3 text-center">
+                        <i class="fas fa-truck-fast text-teal-700 text-xl mb-1 block"></i>
+                        <p class="text-[11px] font-bold text-slate-800">Fast Delivery</p>
+                        <p class="text-[9px] text-slate-500">Same-day dispatch</p>
+                    </div>
+                    <div class="bg-white border border-slate-200 rounded-2xl p-3 text-center">
+                        <i class="fas fa-headset text-teal-700 text-xl mb-1 block"></i>
+                        <p class="text-[11px] font-bold text-slate-800">Expert Support</p>
+                        <p class="text-[9px] text-slate-500">Wiring guidance</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: PRODUCT DETAILS, VARIANTS & ACTIONS -->
+            <div class="lg:col-span-6 space-y-6">
+                
+                <!-- Product Header Info -->
+                <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 space-y-4">
+                    
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">In Stock</span>
+                            <span class="text-xs text-slate-400 font-mono" id="product-id-tag">ID: ...</span>
+                        </div>
+                        <h1 id="product-title" class="text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
+                            Loading Product...
+                        </h1>
+                        <p id="product-short-spec" class="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+                            ...
+                        </p>
+                    </div>
+
+                    <!-- Price & Savings Display -->
+                    <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200 flex items-center justify-between flex-wrap gap-3">
+                        <div>
+                            <div class="flex items-baseline gap-2.5">
+                                <span class="text-3xl sm:text-4xl font-black text-teal-800" id="product-display-price">₹0/-</span>
+                                <span class="text-sm text-slate-400 line-through font-bold" id="product-mrp-price">₹0</span>
+                            </div>
+                            <p class="text-[11px] font-bold text-emerald-700 mt-0.5">
+                                <i class="fas fa-badge-percent mr-1"></i> Best wholesale & retail price guaranteed
+                            </p>
+                        </div>
+                        <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-black px-3 py-1.5 rounded-xl uppercase tracking-wide">
+                            Special Deal
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Variants Section (If product has sub-variants) -->
+                    <div id="product-variants-container" class="space-y-3 pt-2 border-t border-slate-100 hidden">
+                        <div class="flex items-center justify-between">
+                            <label class="text-xs font-black text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
+                                <i class="fas fa-layer-group text-teal-700"></i> Select Variant / Option:
+                            </label>
+                            <span id="selected-variant-label" class="text-xs font-bold text-teal-700">Standard</span>
+                        </div>
+                        <div id="variants-buttons-grid" class="flex flex-wrap gap-2">
+                            <!-- Injected Variant Buttons -->
+                        </div>
+                    </div>
+
+                    <!-- Quantity & Subtotal Selector -->
+                    <div class="pt-2 border-t border-slate-100 flex items-center justify-between flex-wrap gap-4">
+                        <div class="space-y-1">
+                            <label class="text-xs font-black text-slate-900 uppercase tracking-wider">Quantity:</label>
+                            <div class="flex items-center gap-1.5">
+                                <button type="button" onclick="adjustProductQty(-1)" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-800 font-black text-base flex items-center justify-center active:scale-95 transition cursor-pointer">-</button>
+                                <input type="number" id="detail-qty-input" min="1" max="500" value="1" onchange="setProductQty(this.value)" class="w-14 h-9 text-center font-black text-sm bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-700">
+                                <button type="button" onclick="adjustProductQty(1)" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-800 font-black text-base flex items-center justify-center active:scale-95 transition cursor-pointer">+</button>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[11px] font-bold text-slate-500 uppercase">Estimated Subtotal</span>
+                            <p class="text-xl font-black text-teal-900" id="detail-subtotal-price">₹0/-</p>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="space-y-2.5 pt-2">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <button type="button" onclick="addProductToBag()" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-black text-sm py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 shadow-md hover:shadow-lg active:scale-[0.98] transition cursor-pointer">
+                                <i class="fas fa-cart-plus text-base"></i> ADD TO BAG
+                            </button>
+                            <a id="detail-wa-btn" href="#" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 shadow-md hover:shadow-lg active:scale-[0.98] transition">
+                                <i class="fab fa-whatsapp text-lg"></i> ORDER ON WHATSAPP
+                            </a>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2.5">
+                            <button type="button" onclick="shareProduct(currentProduct ? currentProduct.id : getQueryProductId(), event)" class="w-full bg-teal-50/80 hover:bg-teal-100 border border-teal-200 text-teal-900 font-bold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 transition cursor-pointer shadow-sm active:scale-95">
+                                <i class="fas fa-share-alt text-teal-700 text-sm"></i> <span>Share Product</span>
+                            </button>
+                            <button type="button" onclick="copyProductLink(currentProduct ? currentProduct.id : getQueryProductId(), event)" class="w-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-800 font-bold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 transition cursor-pointer shadow-sm active:scale-95" title="Copy Product Link">
+                                <i class="fas fa-link text-slate-600 text-xs"></i> <span>Copy Link</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROX AI INTERACTIVE PRODUCT ASSISTANT CARD -->
+                <div class="bg-gradient-to-br from-cyan-950 via-teal-900 to-cyan-900 text-white rounded-3xl p-6 shadow-xl border-2 border-teal-600/50 space-y-4 relative overflow-hidden">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-10 h-10 rounded-2xl bg-amber-400 text-cyan-950 flex items-center justify-center text-lg font-black shadow-lg">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-black text-amber-400 leading-tight">ROX AI Product Advisor</h3>
+                                <p class="text-[10px] text-teal-200">Smart Specifications, Safety & Compatibility</p>
+                            </div>
+                        </div>
+                        <button type="button" onclick="speakRoxProductSummary()" id="rox-voice-btn" class="bg-teal-800 hover:bg-teal-700 text-white text-xs font-bold px-3 py-1.5 rounded-xl border border-teal-600/60 flex items-center gap-1.5 transition cursor-pointer shadow">
+                            <i class="fas fa-volume-up text-amber-400"></i> <span id="rox-voice-btn-label">Listen (Voice)</span>
+                        </button>
+                    </div>
+
+                    <!-- AI Product Explanation Box -->
+                    <div class="bg-black/30 rounded-2xl p-4 border border-white/10 text-xs sm:text-sm text-teal-50 leading-relaxed" id="rox-product-explanation">
+                        <div class="flex items-center gap-2 text-teal-300 font-bold">
+                            <i class="fas fa-spinner fa-spin"></i> Generating intelligent product guidance...
+                        </div>
+                    </div>
+
+                    <!-- Quick Query Input for ROX AI -->
+                    <div class="space-y-2">
+                        <div class="flex gap-2">
+                            <input type="text" id="rox-inline-query" placeholder="Ask anything about this product (e.g. wattage, wire compatibility)..." class="flex-1 px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-teal-200/60 text-xs focus:outline-none focus:ring-2 focus:ring-amber-400">
+                            <button type="button" onclick="handleInlineRoxQuery()" class="bg-amber-500 hover:bg-amber-400 text-cyan-950 font-black text-xs px-4 py-2.5 rounded-xl transition cursor-pointer shrink-0">
+                                Ask ROX
+                            </button>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 text-[11px]" id="rox-quick-prompts">
+                            <!-- Dynamic prompt chips -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- TECHNICAL SPECIFICATIONS & STORE ADVICE ACCORDION -->
+        <div class="mt-10 bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-8 space-y-6">
+            <h2 class="text-xl font-black text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+                <i class="fas fa-clipboard-list text-teal-700"></i> Technical Specifications & Details
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm" id="tech-specs-table">
+                <!-- Injected technical specs rows -->
+            </div>
+        </div>
+
+        <!-- RELATED PRODUCTS CAROUSEL / GRID -->
+        <div class="mt-12 space-y-4">
+            <div class="flex items-center justify-between">
+                <h2 class="text-xl font-black text-slate-900 flex items-center gap-2">
+                    <i class="fas fa-tags text-teal-700"></i> Related Products in this Category
+                </h2>
+                <a href="index.html" class="text-xs font-bold text-teal-700 hover:text-teal-900">View All Catalog <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+            <div id="related-products-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
+                <!-- Injected Related Products -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FULLSCREEN IMAGE MODAL -->
+    <div id="fullscreen-image-modal" class="fixed inset-0 bg-black/95 z-50 hidden flex items-center justify-center p-4" onclick="closeFullscreenImage()">
+        <button onclick="closeFullscreenImage()" class="absolute top-4 right-4 bg-white/20 hover:bg-white/30 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg cursor-pointer z-10">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="max-w-4xl max-h-[90vh] flex items-center justify-center p-2" onclick="event.stopPropagation()">
+            <img id="fullscreen-img-element" src="" alt="Enlarged Product" class="max-w-full max-h-[85vh] object-contain rounded-2xl shadow-2xl">
+        </div>
+    </div>
+
+    <!-- CART SUMMARY MODAL (SHARED) -->
+    <div id="cart-summary-modal" class="fixed inset-0 bg-black/80 z-[1000000] hidden items-center justify-center p-3 md:p-6">
+        <div class="w-full max-w-3xl max-h-[94vh] overflow-y-auto bg-white rounded-3xl shadow-2xl border-4 border-teal-800">
+            <div class="sticky top-0 z-10 bg-gradient-to-r from-cyan-950 via-teal-900 to-teal-800 text-white px-4 md:px-6 py-4 flex items-center justify-between">
+                <div>
+                    <h2 class="text-lg md:text-2xl font-black uppercase tracking-wide">Final Product Summary</h2>
+                    <p class="text-[11px] md:text-xs text-teal-100 mt-1">Check your products, remove anything you do not need, then place your order.</p>
+                </div>
+                <button type="button" onclick="closeCartSummary()" class="w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white text-lg cursor-pointer">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-4 md:p-6 space-y-5">
+                <div id="cart-summary-items" class="space-y-3"></div>
+                <div id="cart-summary-empty" class="hidden text-center py-10">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-teal-50 text-teal-800 flex items-center justify-center text-2xl mb-3">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <p class="font-black text-cyan-950">Your bag is empty</p>
+                    <p class="text-xs text-gray-500 mt-1">Add products from the catalogue first.</p>
+                </div>
+                <div id="cart-summary-total" class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+                    <div class="flex items-center justify-between gap-4">
+                        <span class="font-black text-cyan-950">TOTAL ESTIMATE</span>
+                        <span id="cart-summary-grand-total" class="text-xl md:text-2xl font-black text-teal-800">₹0/-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-cyan-950 text-gray-300 pt-8 pb-8 px-4 sm:px-6 md:px-12 border-t-2 border-teal-900 mt-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-center md:text-left">
+            <div>
+                <h4 class="text-white font-black text-sm">E-ZONE ELECTRIC SHOP</h4>
+                <p class="text-gray-400 mt-0.5">Kataganj, Bedibhawan, Kalyani, Nadia, PIN - 741250 | Prop: Raju Das (8276969741)</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://youtube.com/@e-zone.electric?si=mjbRofHO1H4zHrmx" target="_blank" class="hover:text-red-400 text-lg transition"><i class="fab fa-youtube"></i></a>
+                <a href="https://wa.me/919330507738" target="_blank" class="hover:text-teal-400 text-lg transition"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/share/1DbrrcyMT8/" target="_blank" class="hover:text-teal-400 text-lg transition"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/kajaldas6969741?utm_source=qr&igsi=Z2FhbXNvd2Y4YjNw" target="_blank" class="hover:text-teal-400 text-lg transition"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/data/locales.js"></script>
+    <script src="js/data/products.js"></script>
+    <script src="js/data/config.js"></script>
+    <script src="js/modules/state.js"></script>
+    <script src="js/modules/share.js"></script>
+    <script src="js/modules/filters.js"></script>
+    <script src="js/modules/cart.js"></script>
+    <script src="js/modules/payment.js"></script>
+    <script src="js/modules/wishlist.js"></script>
+    <script src="js/modules/rox-agent.js"></script>
+    <script src="js/modules/rox-splash.js"></script>
+
+    <!-- PRODUCT DETAILS CONTROLLER SCRIPT -->
+    <script>
+        let currentProduct = null;
+        let selectedVariantName = null;
+        let selectedVariantPrice = 0;
+        let currentQuantity = 1;
+
+        function getQueryProductId() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id') || 'new-cob-light';
+        }
+
+        function initProductPage() {
+            const productId = getQueryProductId();
+            currentProduct = products.find(p => p.id === productId) || products[0];
+            if (!currentProduct) return;
+
+            // Page Title
+            document.title = `${currentProduct.name} | E-ZONE Electric`;
+
+            // Breadcrumbs
+            document.getElementById('bc-category').innerText = currentProduct.category || 'General';
+            document.getElementById('bc-product-name').innerText = currentProduct.name;
+
+            // Core Details
+            document.getElementById('product-title').innerText = getLocalizedProductName(currentProduct.name);
+            document.getElementById('product-short-spec').innerText = currentProduct.spec || 'High-grade durable electrical equipment engineered for reliable home and commercial installation.';
+            document.getElementById('product-id-tag').innerText = `ID: ${currentProduct.id}`;
+            document.getElementById('product-category-badge').innerText = currentProduct.category;
+
+            // Brand Badge using Vector Logo
+            const brandBadgeEl = document.getElementById('product-brand-badge');
+            if (typeof getBrandTypographyHtml === 'function') {
+                brandBadgeEl.innerHTML = getBrandTypographyHtml(currentProduct.brand);
+            } else {
+                brandBadgeEl.innerText = currentProduct.brand;
+            }
+
+            // Image Setup
+            const embeddedImage = getEmbeddedProductImage(currentProduct);
+            const configuredImageName = typeof PRODUCT_IMAGES !== 'undefined' && typeof PRODUCT_IMAGES[currentProduct.id] === 'string' ? PRODUCT_IMAGES[currentProduct.id].trim() : '';
+            const productImage = currentProduct.customImage || embeddedImage;
+            const imgEl = document.getElementById('product-main-image');
+
+            if (productImage) {
+                imgEl.src = productImage;
+            } else {
+                imgEl.src = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><rect width='100%' height='100%' fill='%230f766e'/><text x='50%' y='50%' font-size='120' text-anchor='middle' dominant-baseline='middle' fill='%23ffffff'>${currentProduct.emoji || '💡'}</text></svg>`;
+            }
+
+            // Setup Gallery Views / Angles
+            setupProductGallery(currentProduct);
+
+            // Setup Variants
+            setupProductVariants();
+
+            // Quantity & Price
+            updateProductPriceDisplay();
+
+            // Setup ROX AI Explanation
+            setupRoxProductAssistant();
+
+            // Setup Technical Specifications Table
+            renderTechSpecs();
+
+            // Render Related Products
+            renderRelatedProducts();
+
+            // Update Cart Count
+            if (typeof updateCartCount === 'function') updateCartCount();
+        }
+
+        function setupProductGallery(p) {
+            const strip = document.getElementById('product-gallery-strip');
+            const container = document.getElementById('product-gallery-thumbnails');
+            if (!strip || !container) return;
+            container.innerHTML = "";
+
+            let imagesList = [];
+            if (Array.isArray(p.images) && p.images.length > 0) {
+                imagesList = [...p.images];
+            } else if (p.customImage) {
+                imagesList = [p.customImage];
+            } else {
+                const primary = getEmbeddedProductImage(p);
+                if (primary) imagesList.push(primary);
+            }
+
+            if (p.id === 'new-cob-light') {
+                imagesList = [
+                    'product-images/new-cob-light-1.jpg',
+                    'product-images/new-cob-light-2.jpg'
+                ];
+            }
+
+            if (imagesList.length <= 1) {
+                strip.classList.add('hidden');
+                return;
+            }
+
+            strip.classList.remove('hidden');
+            const mainImg = document.getElementById('product-main-image');
+
+            imagesList.forEach((src, idx) => {
+                const thumb = document.createElement('button');
+                thumb.type = 'button';
+                const isSelected = (mainImg && (mainImg.src.includes(src) || (idx === 0 && !mainImg.src.includes('new-cob-light-2'))));
+                thumb.className = `relative w-16 h-16 rounded-xl border-2 overflow-hidden transition-all duration-200 cursor-pointer p-1 bg-white shadow-sm flex items-center justify-center shrink-0 ${isSelected ? 'border-teal-700 ring-2 ring-teal-500/40 scale-105' : 'border-slate-200 hover:border-teal-400 opacity-75 hover:opacity-100'}`;
+                thumb.innerHTML = `
+                    <img src="${src}" alt="Angle ${idx + 1}" class="w-full h-full object-contain rounded-lg">
+                    <span class="absolute bottom-0.5 right-1 bg-black/60 text-white text-[8px] font-bold px-1 rounded">View ${idx + 1}</span>
+                `;
+                thumb.onclick = () => {
+                    if (mainImg) mainImg.src = src;
+                    Array.from(container.children).forEach(btn => {
+                        btn.className = 'relative w-16 h-16 rounded-xl border-2 overflow-hidden transition-all duration-200 cursor-pointer p-1 bg-white shadow-sm flex items-center justify-center shrink-0 border-slate-200 hover:border-teal-400 opacity-75 hover:opacity-100';
+                    });
+                    thumb.className = 'relative w-16 h-16 rounded-xl border-2 overflow-hidden transition-all duration-200 cursor-pointer p-1 bg-white shadow-sm flex items-center justify-center shrink-0 border-teal-700 ring-2 ring-teal-500/40 scale-105';
+                };
+                container.appendChild(thumb);
+            });
+        }
+
+        function setupProductVariants() {
+            const variantsContainer = document.getElementById('product-variants-container');
+            const grid = document.getElementById('variants-buttons-grid');
+            grid.innerHTML = "";
+
+            const variantsMap = currentProduct.subVariantPrices || {};
+            const keys = Object.keys(variantsMap);
+
+            if (keys.length > 0) {
+                variantsContainer.classList.remove('hidden');
+                selectedVariantName = keys[0];
+                selectedVariantPrice = variantsMap[keys[0]];
+                document.getElementById('selected-variant-label').innerText = `${selectedVariantName} (₹${selectedVariantPrice})`;
+
+                keys.forEach(k => {
+                    const price = variantsMap[k];
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = `px-3.5 py-2 rounded-xl text-xs font-bold border transition cursor-pointer flex items-center gap-1.5 ${k === selectedVariantName ? 'bg-teal-700 text-white border-teal-800 shadow-sm' : 'bg-slate-50 text-slate-800 border-slate-200 hover:bg-slate-100'}`;
+                    btn.innerHTML = `<span>${k}</span> <span class="font-black text-[11px] opacity-90">₹${price}</span>`;
+                    btn.onclick = () => { selectVariant(k, price); };
+                    grid.appendChild(btn);
+                });
+            } else {
+                variantsContainer.classList.add('hidden');
+                selectedVariantName = null;
+                selectedVariantPrice = currentProduct.price;
+            }
+        }
+
+        function selectVariant(variantName, price) {
+            selectedVariantName = variantName;
+            selectedVariantPrice = price;
+            document.getElementById('selected-variant-label').innerText = `${variantName} (₹${price})`;
+            
+            // Re-render buttons active state
+            const grid = document.getElementById('variants-buttons-grid');
+            Array.from(grid.children).forEach(btn => {
+                if (btn.innerText.includes(variantName)) {
+                    btn.className = 'px-3.5 py-2 rounded-xl text-xs font-bold border transition cursor-pointer flex items-center gap-1.5 bg-teal-700 text-white border-teal-800 shadow-sm';
+                } else {
+                    btn.className = 'px-3.5 py-2 rounded-xl text-xs font-bold border transition cursor-pointer flex items-center gap-1.5 bg-slate-50 text-slate-800 border-slate-200 hover:bg-slate-100';
+                }
+            });
+
+            updateProductPriceDisplay();
+        }
+
+        function adjustProductQty(delta) {
+            currentQuantity = Math.max(1, Math.min(500, currentQuantity + delta));
+            document.getElementById('detail-qty-input').value = currentQuantity;
+            updateProductPriceDisplay();
+        }
+
+        function setProductQty(val) {
+            currentQuantity = Math.max(1, Math.min(500, parseInt(val) || 1));
+            document.getElementById('detail-qty-input').value = currentQuantity;
+            updateProductPriceDisplay();
+        }
+
+        function updateProductPriceDisplay() {
+            const unitPrice = selectedVariantName ? selectedVariantPrice : currentProduct.price;
+            const subtotal = unitPrice * currentQuantity;
+            const fakeMrp = Math.round(unitPrice * 1.22);
+
+            document.getElementById('product-display-price').innerText = `₹${unitPrice}/-`;
+            document.getElementById('product-mrp-price').innerText = `MRP: ₹${fakeMrp}`;
+            document.getElementById('detail-subtotal-price').innerText = `₹${subtotal}/- (${currentQuantity} pcs)`;
+
+            // Update WhatsApp Link
+            const variantNote = selectedVariantName ? ` (Option: ${selectedVariantName})` : '';
+            const waMsg = `Hi E-ZONE Electric, I want to order:\n- Item: ${currentProduct.name}${variantNote}\n- Brand: ${currentProduct.brand}\n- Quantity: ${currentQuantity}\n- Total Price: ₹${subtotal}/-\nPlease confirm availability!`;
+            document.getElementById('detail-wa-btn').href = `https://wa.me/919330507738?text=${encodeURIComponent(waMsg)}`;
+        }
+
+        function addProductToBag() {
+            if (!currentProduct) return;
+            const unitPrice = selectedVariantName ? selectedVariantPrice : currentProduct.price;
+            
+            if (selectedVariantName) {
+                if (typeof addToCartWithVariant === 'function') {
+                    currentProduct.qty = currentQuantity;
+                    addToCartWithVariant(currentProduct.id, selectedVariantName, unitPrice);
+                }
+            } else {
+                if (typeof addToCart === 'function') {
+                    currentProduct.qty = currentQuantity;
+                    addToCart(currentProduct.id);
+                }
+            }
+
+            // Visual Notification
+            alert(`✅ Added ${currentQuantity}x "${currentProduct.name}" to your shopping bag!`);
+        }
+
+        function setupRoxProductAssistant() {
+            const explanationEl = document.getElementById('rox-product-explanation');
+            const promptChipsEl = document.getElementById('rox-quick-prompts');
+            if (!currentProduct) return;
+
+            let promptList = [
+                `💡 What is this used for?`,
+                `⚡ Wire gauge & power?`,
+                `🛡️ Durability & Warranty?`,
+                `📦 How to install?`
+            ];
+
+            promptChipsEl.innerHTML = "";
+            promptList.forEach(pText => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'bg-white/10 hover:bg-white/20 border border-white/15 px-2.5 py-1 rounded-lg text-teal-200 transition cursor-pointer';
+                btn.innerText = pText;
+                btn.onclick = () => { askRoxQuickQuestion(pText.replace(/^[^\w]+/, '')); };
+                promptChipsEl.appendChild(btn);
+            });
+
+            // Generate Instant AI Overview
+            let summaryText = "";
+            if (currentLang === 'bn') {
+                summaryText = `<strong>${currentProduct.name}</strong> (${currentProduct.brand}) হলো একটি নির্ভরযোগ্য ইলেকট্রিক্যাল পণ্য। এটি ${currentProduct.category} ক্যাটাগরির অন্তর্ভুক্ত। ${currentProduct.spec || ''} নতুন ওয়্যারিং অথবা প্রতিস্থাপনের জন্য এটি অত্যন্ত উপযোগী ও বিদ্যুৎ সাশ্রয়ী।`;
+            } else if (currentLang === 'hi') {
+                summaryText = `<strong>${currentProduct.name}</strong> (${currentProduct.brand}) एक प्रीमियम व टिकाऊ इलेक्ट्रिकल उत्पाद है। यह ${currentProduct.category} श्रेणी में आता है। ${currentProduct.spec || ''} यह सुरक्षित उपयोग और उच्च दक्षता प्रदान करता है।`;
+            } else {
+                summaryText = `<strong>${currentProduct.name}</strong> by ${currentProduct.brand} is a certified electrical solution under the ${currentProduct.category} category. ${currentProduct.spec || ''} Built with high durability standards for residential and commercial installations.`;
+            }
+
+            explanationEl.innerHTML = summaryText;
+        }
+
+        function speakRoxProductSummary() {
+            const textToSpeak = document.getElementById('rox-product-explanation').innerText;
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(textToSpeak);
+                utterance.lang = currentLang === 'bn' ? 'bn-IN' : (currentLang === 'hi' ? 'hi-IN' : 'en-US');
+                utterance.rate = 0.95;
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("Voice speech is not supported in this browser.");
+            }
+        }
+
+        function askRoxQuickQuestion(question) {
+            document.getElementById('rox-inline-query').value = question;
+            handleInlineRoxQuery();
+        }
+
+        function handleInlineRoxQuery() {
+            const input = document.getElementById('rox-inline-query');
+            const query = input.value.trim();
+            if (!query) return;
+
+            const explanationEl = document.getElementById('rox-product-explanation');
+            explanationEl.innerHTML = `<div class="flex items-center gap-2 text-amber-300 font-bold"><i class="fas fa-spinner fa-spin"></i> ROX AI analyzing "${query}"...</div>`;
+
+            setTimeout(() => {
+                let answer = `Regarding <strong>${currentProduct.name}</strong>: ${query} — This ${currentProduct.brand} product operates under standard 220V-240V 50Hz electrical layout. For safety and performance, always follow authentic installation codes and ensure appropriate fuse/MCB load distribution.`;
+                if (currentLang === 'bn') {
+                    answer = `<strong>${currentProduct.name}</strong> সম্পর্কিত "${query}" তথ্য: এটি ${currentProduct.brand} এর তৈরি উচ্চ মানের পণ্য। সাধারণ ২২০V-২৪০V মেইন লাইনে নিরাপদে কাজ করে এবং সঠিক লোড অনুযায়ী ব্যবহার করলে দীর্ঘস্থায়ী সার্ভিস প্রদান করে।`;
+                } else if (currentLang === 'hi') {
+                    answer = `<strong>${currentProduct.name}</strong> के लिए "${query}": यह ${currentProduct.brand} का विश्वसनीय उत्पाद है, जो 220V-240V लाइन के अनुकूल है और उत्कृष्ट सुरक्षा प्रदान करता है।`;
+                }
+                explanationEl.innerHTML = answer;
+            }, 600);
+        }
+
+        function renderTechSpecs() {
+            const table = document.getElementById('tech-specs-table');
+            table.innerHTML = `
+                <div class="flex justify-between p-3 bg-slate-50 rounded-xl border border-slate-100"><span class="font-bold text-slate-500">Product Name:</span><span class="font-black text-slate-900 text-right">${currentProduct.name}</span></div>
+                <div class="flex justify-between p-3 bg-slate-50 rounded-xl border border-slate-100"><span class="font-bold text-slate-500">Brand / Manufacturer:</span><span class="font-black text-slate-900 text-right">${currentProduct.brand}</span></div>
+                <div class="flex justify-between p-3 bg-slate-50 rounded-xl border border-slate-100"><span class="font-bold text-slate-500">Category:</span><span class="font-black text-slate-900 text-right capitalize">${currentProduct.category}</span></div>
+                <div class="flex justify-between p-3 bg-slate-50 rounded-xl border border-slate-100"><span class="font-bold text-slate-500">Operating Voltage:</span><span class="font-black text-slate-900 text-right">220V - 240V AC, 50Hz</span></div>
+                <div class="flex justify-between p-3 bg-slate-50 rounded-xl border border-slate-100"><span class="font-bold text-slate-500">Condition & Quality:</span><span class="font-black text-emerald-700 text-right">100% Brand New Original</span></div>
+                <div class="flex justify-between p-3 bg-slate-50 rounded-xl border border-slate-100"><span class="font-bold text-slate-500">Store Support:</span><span class="font-black text-slate-900 text-right">E-ZONE Kataganj Hotline (8276969741)</span></div>
+            `;
+        }
+
+        function renderRelatedProducts() {
+            const relatedGrid = document.getElementById('related-products-grid');
+            relatedGrid.innerHTML = "";
+            
+            const related = products
+                .filter(p => p.category === currentProduct.category && p.id !== currentProduct.id)
+                .slice(0, 6);
+
+            related.forEach(p => {
+                const card = document.createElement('div');
+                card.className = "bg-white border border-slate-200 rounded-2xl p-3 shadow-sm hover:shadow-md transition flex flex-col justify-between cursor-pointer group relative";
+                card.onclick = () => { window.location.href = `product.html?id=${encodeURIComponent(p.id)}`; };
+
+                const embedded = getEmbeddedProductImage(p);
+                const pImg = p.customImage || embedded;
+                const imgTag = pImg ? `<img src="${pImg}" alt="${p.name}" class="w-full h-28 object-contain rounded-xl mb-2 group-hover:scale-105 transition">` : `<div class="w-full h-28 bg-teal-50 rounded-xl flex items-center justify-center text-3xl mb-2">${p.emoji || '💡'}</div>`;
+
+                card.innerHTML = `
+                    <div class="relative">
+                        <button type="button" onclick="event.stopPropagation(); shareProduct('${p.id}', event)" class="absolute top-1 right-1 z-10 w-6 h-6 rounded-full bg-white/90 hover:bg-white shadow text-gray-500 hover:text-teal-700 flex items-center justify-center transition text-[10px]" title="Share Product" aria-label="Share Product">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                        ${imgTag}
+                        <p class="text-[10px] font-bold text-teal-700 uppercase tracking-wide">${p.brand}</p>
+                        <h4 class="text-xs font-bold text-slate-900 line-clamp-2 mt-0.5 leading-snug">${p.name}</h4>
+                    </div>
+                    <div class="mt-2 pt-2 border-t border-slate-100 flex items-center justify-between">
+                        <span class="font-black text-xs text-teal-800">₹${p.price}/-</span>
+                        <span class="text-[10px] bg-teal-50 text-teal-700 font-bold px-2 py-0.5 rounded-md">View</span>
+                    </div>
+                `;
+                relatedGrid.appendChild(card);
+            });
+        }
+
+        function openFullscreenImage() {
+            const imgEl = document.getElementById('product-main-image');
+            document.getElementById('fullscreen-img-element').src = imgEl.src;
+            document.getElementById('fullscreen-image-modal').classList.remove('hidden');
+        }
+
+        function closeFullscreenImage() {
+            document.getElementById('fullscreen-image-modal').classList.add('hidden');
+        }
+
+        function handleProductImageFallback(img) {
+            img.onerror = null;
+            img.src = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><rect width='100%' height='100%' fill='%230f766e'/><text x='50%' y='50%' font-size='120' text-anchor='middle' dominant-baseline='middle' fill='%23ffffff'>${currentProduct ? (currentProduct.emoji || '💡') : '💡'}</text></svg>`;
+        }
+
+        function toggleLangMenu() {
+            const menu = document.getElementById('lang-menu');
+            if (menu) menu.classList.toggle('hidden');
+        }
+
+        function changeLanguage(langCode) {
+            currentLang = langCode || 'bn';
+            window.currentLang = currentLang;
+            try { localStorage.setItem('ezone_language', currentLang); } catch(e) {}
+            
+            const menu = document.getElementById('lang-menu');
+            if (menu) menu.classList.add('hidden');
+            
+            let labelText = "Language";
+            if(currentLang === 'bn') labelText = "ভাষা (Bengali)";
+            if(currentLang === 'hi') labelText = "भाषा (Hindi)";
+            const labelEl = document.getElementById('current-lang-label');
+            if (labelEl) labelEl.innerText = labelText;
+
+            if (currentProduct) {
+                document.getElementById('product-title').innerText = getLocalizedProductName(currentProduct.name);
+                setupRoxProductAssistant();
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            try {
+                const saved = localStorage.getItem('ezone_language');
+                if (saved && ['bn', 'en', 'hi'].includes(saved)) currentLang = saved;
+            } catch(e) {}
+            changeLanguage(currentLang || 'bn');
+            initProductPage();
+        });
+    </script>
+</body>
+</html>

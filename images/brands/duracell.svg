@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 38" width="170" height="38">
+  <!-- DURACELL Official Horizontal CopperTop Battery Vector Logo -->
+  <defs>
+    <!-- Copper top metallic gradient -->
+    <linearGradient id="copper-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#b45309" />
+      <stop offset="30%" stop-color="#ea9e57" />
+      <stop offset="55%" stop-color="#f59e0b" />
+      <stop offset="85%" stop-color="#b45309" />
+      <stop offset="100%" stop-color="#78350f" />
+    </linearGradient>
+
+    <!-- Black cylinder metallic gradient -->
+    <linearGradient id="black-body-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1f2937" />
+      <stop offset="25%" stop-color="#374151" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="80%" stop-color="#020617" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+
+    <!-- Silver terminal button gradient -->
+    <linearGradient id="silver-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#94a3b8" />
+      <stop offset="50%" stop-color="#f1f5f9" />
+      <stop offset="100%" stop-color="#64748b" />
+    </linearGradient>
+  </defs>
+
+  <g id="duracell-battery">
+    <!-- Positive terminal nipple on far left -->
+    <rect x="1" y="12" width="4.5" height="14" rx="2" fill="url(#silver-grad)" />
+
+    <!-- Main Battery Outer Cylinder (Clip & Shadow) -->
+    <rect x="5" y="3" width="160" height="32" rx="4.5" fill="#020617" />
+
+    <!-- Left Section: Copper Top -->
+    <path d="M 9.5,3 L 44,3 L 44,35 L 9.5,35 C 7,35 5,33 5,30.5 L 5,7.5 C 5,5 7,3 9.5,3 Z" fill="url(#copper-grad)" />
+
+    <!-- Silver Duralock Separation Line -->
+    <rect x="43.5" y="3" width="2" height="32" fill="#cbd5e1" opacity="0.8" />
+
+    <!-- Right Section: Black Body Cylinder -->
+    <path d="M 45,3 L 160.5,3 C 163,3 165,5 165,7.5 L 165,30.5 C 165,33 163,35 160.5,35 L 45,35 Z" fill="url(#black-body-grad)" />
+
+    <!-- Cylindrical Top Light Reflection Sheen -->
+    <path d="M 7,6 L 163,6 L 163,8.5 L 7,8.5 Z" fill="#ffffff" opacity="0.22" />
+
+    <!-- DURACELL Bold White Typography -->
+    <text x="52" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Arial Black', sans-serif" font-size="16.5" font-weight="900" fill="#ffffff" letter-spacing="0.8">DURACELL</text>
+
+    <!-- Registered Symbol ® -->
+    <circle cx="156" cy="14" r="2.5" fill="none" stroke="#ffffff" stroke-width="0.7" opacity="0.9" />
+    <text x="156" y="15.5" font-family="Arial, sans-serif" font-size="3.2" font-weight="bold" fill="#ffffff" text-anchor="middle" opacity="0.9">R</text>
+  </g>
+</svg>

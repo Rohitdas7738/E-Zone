@@ -1,0 +1,352 @@
+        /* Hide scrollbars for Chrome, Safari, Edge, Firefox while maintaining scroll functionality */
+        html,
+        body {
+            scrollbar-width: none !important; /* Firefox */
+            -ms-overflow-style: none !important; /* IE and Edge */
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar,
+        *::-webkit-scrollbar {
+            display: none !important;
+            width: 0 !important;
+            height: 0 !important;
+            background: transparent !important;
+        }
+
+        * {
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+        }
+
+        nav,
+        .bg-cyan-950,
+        footer {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        .active-filter {
+            background-color: #0f766e !important;
+            color: white !important;
+            border-color: #0f766e !important;
+        }
+        .real-logo-e {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 82px;
+            height: 64px;
+            flex-shrink: 0;
+        }
+        .real-logo-e img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+
+
+        #admin-floating-lock-btn {
+            position: fixed !important;
+            z-index: 999998 !important;
+            touch-action: none;
+            user-select: none;
+            -webkit-user-select: none;
+            cursor: grab;
+            will-change: left, top, transform;
+        }
+        #admin-floating-lock-btn:active {
+            cursor: grabbing;
+        }
+
+        .macos-genie-fly {
+            position: fixed !important;
+            z-index: 9999999 !important;
+            pointer-events: none !important;
+            will-change: transform, opacity, filter;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(15, 118, 110, 0.5);
+            animation: macosGenieFast 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes macosGenieFast {
+            0% {
+                transform: translate(0, 0) scale(1) rotate(0deg) skew(0deg, 0deg);
+                opacity: 1;
+                filter: brightness(1) blur(0px);
+            }
+            40% {
+                transform: translate(calc(var(--tx) * 0.4), calc(var(--ty) * 0.2)) scale(0.85, 0.9) rotate(-3deg) skew(2deg, 4deg);
+                opacity: 0.95;
+            }
+            75% {
+                transform: translate(calc(var(--tx) * 0.8), calc(var(--ty) * 0.7)) scale(0.4, 0.3) rotate(2deg) skew(-3deg, -6deg);
+                opacity: 0.7;
+                filter: brightness(1.2) blur(0.2px);
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(0.05, 0.02) rotate(0deg) skew(0deg, 0deg);
+                opacity: 0;
+                filter: brightness(1.5) blur(0.8px);
+            }
+        }
+
+        @keyframes bagBounceEffect {
+            0% { transform: scale(1); }
+            30% { transform: scale(1.35) rotate(-8deg); }
+            60% { transform: scale(0.88) rotate(4deg); }
+            80% { transform: scale(1.12) rotate(-2deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        .bag-bounce {
+            animation: bagBounceEffect 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes glowingBadge {
+            0% {
+                text-shadow: 0 0 4px rgba(45, 212, 191, 0.4), 0 0 10px rgba(45, 212, 191, 0.3);
+                filter: drop-shadow(0 0 2px rgba(20, 184, 166, 0.5));
+            }
+            50% {
+                text-shadow: 0 0 15px rgba(52, 211, 153, 0.9), 0 0 25px rgba(45, 212, 191, 0.7), 0 0 35px rgba(20, 184, 166, 0.5);
+                filter: drop-shadow(0 0 8px rgba(52, 211, 153, 0.8));
+                transform: scale(1.02);
+            }
+            100% {
+                text-shadow: 0 0 4px rgba(45, 212, 191, 0.4), 0 0 10px rgba(45, 212, 191, 0.3);
+                filter: drop-shadow(0 0 2px rgba(20, 184, 166, 0.5));
+            }
+        }
+
+        @keyframes jumpEffect {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        @keyframes glowingButtonEffect {
+            0% {
+                box-shadow: 0 0 5px rgba(16, 185, 129, 0.5), 0 0 15px rgba(16, 185, 129, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(52, 211, 153, 0.9), 0 0 35px rgba(16, 185, 129, 0.6);
+                transform: scale(1.03);
+            }
+            100% {
+                box-shadow: 0 0 5px rgba(16, 185, 129, 0.5), 0 0 15px rgba(16, 185, 129, 0.3);
+            }
+        }
+
+        .glowing-rohit-text {
+            animation: glowingBadge 2.2s infinite ease-in-out;
+        }
+
+        .jump-blink-hotline {
+            animation: jumpEffect 1.2s infinite ease-in-out;
+        }
+
+        .glowing-whatsapp-btn {
+            animation: jumpEffect 1.2s infinite ease-in-out, glowingButtonEffect 2s infinite ease-in-out;
+        }
+
+        /* ================= ROX PRODUCT MARKETING AGENT ================= */
+        .rox-product-btn {
+            width: 100%;
+            background: #0f766e;
+            color: #fff;
+            border: 0;
+            border-radius: 0.375rem;
+            padding: 0.5rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.375rem;
+            cursor: pointer;
+            transition: all .2s ease;
+            box-shadow: 0 2px 5px rgba(15,118,110,.18);
+        }
+        .rox-product-btn:hover { background:#115e59; transform:translateY(-1px); }
+        .rox-product-btn:active { transform:scale(.98); }
+
+        #rox-product-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.78);
+            z-index: 10000000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        #rox-product-modal.rox-open { display:flex; }
+        .rox-dialog {
+            width: min(680px, 100%);
+            max-height: 92vh;
+            overflow-y: auto;
+            background: #fff;
+            border-radius: 1.25rem;
+            box-shadow: 0 25px 70px rgba(0,0,0,.35);
+            border: 3px solid #0f766e;
+            position: relative;
+        }
+        .rox-head {
+            background: linear-gradient(135deg,#042f2e,#0f766e,#134e4a);
+            color:#fff;
+            padding:1rem 1.1rem;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:.75rem;
+        }
+        .rox-head-left { display:flex; align-items:center; gap:.7rem; }
+        .rox-logo {
+            width:44px;height:44px;border-radius:50%;
+            display:flex;align-items:center;justify-content:center;
+            background:#14b8a6;color:#042f2e;
+            font-weight:900;font-size:1rem;
+            border:2px solid #99f6e4;
+            box-shadow:0 0 18px rgba(45,212,191,.45);
+        }
+        .rox-close {
+            width:34px;height:34px;border:0;border-radius:50%;
+            background:rgba(255,255,255,.13);color:#fff;
+            cursor:pointer;font-size:1rem;
+        }
+        .rox-close:hover { background:rgba(255,255,255,.25); }
+        .rox-body { padding:1rem; }
+        .rox-language-row {
+            display:flex; flex-wrap:wrap; gap:.45rem; align-items:center;
+            margin-bottom:.85rem;
+        }
+        .rox-language-row button {
+            border:1px solid #99f6e4;
+            background:#f0fdfa;
+            color:#115e59;
+            border-radius:.5rem;
+            padding:.35rem .65rem;
+            font-size:.7rem;
+            font-weight:800;
+            cursor:pointer;
+        }
+        .rox-language-row button.active {
+            background:#0f766e;color:#fff;border-color:#0f766e;
+        }
+        .rox-product-title {
+            color:#042f2e;font-weight:900;font-size:1.05rem;
+            line-height:1.3;margin-bottom:.75rem;
+        }
+        .rox-diagram {
+            display:grid;
+            grid-template-columns: 1fr;
+            gap:.5rem;
+            margin:.8rem 0;
+        }
+        .rox-node {
+            position:relative;
+            background:#f0fdfa;
+            border:1px solid #99f6e4;
+            border-radius:.75rem;
+            padding:.65rem .75rem;
+            text-align:center;
+        }
+        .rox-node:not(:last-child)::after {
+            content:'↓';
+            position:absolute;
+            left:50%; bottom:-.68rem;
+            transform:translateX(-50%);
+            color:#0f766e;font-weight:900;
+            background:#fff;padding:0 .2rem;z-index:2;
+        }
+        .rox-node-label {
+            display:block;font-size:.62rem;color:#0f766e;
+            font-weight:900;text-transform:uppercase;letter-spacing:.05em;
+            margin-bottom:.2rem;
+        }
+        .rox-node-value {
+            display:block;font-size:.78rem;color:#134e4a;font-weight:800;
+            word-break:break-word;
+        }
+        .rox-speech {
+            margin-top:1rem;
+            background:#ecfdf5;
+            border:1px solid #a7f3d0;
+            border-radius:.8rem;
+            padding:.85rem;
+            color:#064e3b;
+            font-size:.82rem;
+            line-height:1.65;
+            white-space:pre-wrap;
+        }
+        .rox-actions {
+            display:flex;gap:.55rem;flex-wrap:wrap;margin-top:.8rem;
+        }
+        .rox-action {
+            flex:1 1 150px;
+            border:0;border-radius:.6rem;padding:.65rem .75rem;
+            font-size:.75rem;font-weight:900;cursor:pointer;
+            display:flex;align-items:center;justify-content:center;gap:.4rem;
+        }
+        .rox-speak-btn { background:#0f766e;color:#fff; }
+        .rox-stop-btn { background:#e2e8f0;color:#334155; }
+        .rox-note {
+            margin-top:.7rem;
+            font-size:.63rem;color:#64748b;text-align:center;
+        }
+        @media (max-width:480px) {
+            #rox-product-modal { padding:.5rem; }
+            .rox-dialog { border-radius:1rem; }
+            .rox-body { padding:.8rem; }
+        }
+
+    
+        /* ================= BRAND THEME FILTER BUTTONS ================= */
+        .brand-filter-btn{
+            min-width:82px;
+            letter-spacing:.01em;
+            position:relative;
+            overflow:hidden;
+            isolation:isolate;
+        }
+        .brand-filter-btn::after{
+            content:"";
+            position:absolute;
+            inset:0;
+            background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.55) 45%,transparent 70%);
+            transform:translateX(-120%);
+            transition:transform .55s ease;
+            pointer-events:none;
+            z-index:-1;
+        }
+        .brand-filter-btn:hover::after{ transform:translateX(120%); }
+        .brand-filter-btn:hover{
+            transform:translateY(-1px) scale(1.015) !important;
+            filter:saturate(1.06);
+        }
+        .brand-filter-btn:active{ transform:scale(.98) !important; }
+        .brand-discount-badge{
+            letter-spacing:.02em;
+            animation:brandDiscountPulse 2.6s ease-in-out infinite;
+        }
+        @keyframes brandDiscountPulse{
+            0%,100%{transform:scale(1);box-shadow:0 5px 16px rgba(245,158,11,.20)}
+            50%{transform:scale(1.035);box-shadow:0 7px 20px rgba(245,158,11,.34)}
+        }
+        #global-discount-input{appearance:textfield}
+        #global-discount-input::-webkit-outer-spin-button,
+        #global-discount-input::-webkit-inner-spin-button{appearance:none;margin:0}
+        .search-result-group-heading{grid-column:1 / -1; margin-top:.35rem; margin-bottom:.1rem;}
+        .search-result-group-heading + .product-card{scroll-margin-top:90px;}
+        @media (max-width:640px){
+            .search-result-group-heading{margin-top:.2rem;}
+            .search-result-group-heading > div{padding:.55rem .65rem;}
+        }

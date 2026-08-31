@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 38" width="160" height="38">
+  <!-- POLYFLEX / Fire Flex Official Enhanced Vector Logo -->
+  <g id="polyflex-brand">
+    <!-- Circular PF Badge on Left -->
+    <g transform="translate(4, 3)">
+      <!-- Outer Circle Arc Left (Orange) -->
+      <path d="M 16,1 A 15,15 0 0,0 16,31" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round" />
+      <!-- Outer Circle Arc Right (Dark Charcoal) -->
+      <path d="M 16,1 A 15,15 0 0,1 16,31" fill="none" stroke="#374151" stroke-width="2.5" stroke-linecap="round" />
+
+      <!-- P Letter (Orange) -->
+      <path d="M 8,8 L 14.5,8 C 17.5,8 19,9.5 19,12 C 19,14.5 17.5,16 14.5,16 L 11,16 L 11,24 L 8,24 Z M 11,10.5 L 11,13.5 L 14.5,13.5 C 16,13.5 16.5,13 16.5,12 C 16.5,11 16,10.5 14.5,10.5 Z" fill="#ea580c" />
+
+      <!-- F Letter (Dark Charcoal) -->
+      <path d="M 16.5,8 L 24,8 L 24,10.5 L 19.5,10.5 L 19.5,13 L 23.5,13 L 23.5,15.5 L 19.5,15.5 L 19.5,24 L 16.5,24 Z" fill="#374151" />
+    </g>
+
+    <!-- POLY (Orange Bold Geometric) -->
+    <text x="42" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Arial Black', sans-serif" font-size="18.5" font-weight="900" fill="#ea580c" letter-spacing="0.2">POLY</text>
+
+    <!-- FLEX (Dark Charcoal Bold Geometric) -->
+    <text x="96" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Arial Black', sans-serif" font-size="18.5" font-weight="900" fill="#1f2937" letter-spacing="0.2">FLEX</text>
+  </g>
+</svg>

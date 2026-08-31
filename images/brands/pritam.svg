@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 195 50" width="195" height="50">
+  <!-- PRITAM Official Enhanced Vector Logo -->
+  <g id="pritam-brand">
+    <!-- Left Power Button / Teardrop Pin Emblem in Vibrant Red -->
+    <g transform="translate(4, 3)">
+      <!-- Red Pin Outer Silhouette -->
+      <path d="M 18,1 C 9,1 2,8 2,17 C 2,27 1,36 1,41 C 4,37 9,33 18,33 C 27,33 34,26 34,17 C 34,8 27,1 18,1 Z" fill="#dc2626" />
+
+      <!-- Inner White Circular Ring with Power Notch -->
+      <circle cx="18" cy="17" r="11.5" fill="#ffffff" />
+      <path d="M 23,8 L 27,12 L 24,15 L 20,11 Z" fill="#dc2626" />
+
+      <!-- Inner Solid Red Power Disc -->
+      <circle cx="18" cy="17" r="8.5" fill="#dc2626" />
+    </g>
+
+    <!-- 'PRITAM' Modern Bold Red Typography -->
+    <!-- P -->
+    <path d="M 44,10 L 59,10 C 65,10 68,13.5 68,19 C 68,24.5 65,28 59,28 L 50,28 L 50,37 L 44,37 Z M 50,15.5 L 50,22.5 L 58,22.5 C 61,22.5 62.5,21 62.5,19 C 62.5,17 61,15.5 58,15.5 Z" fill="#dc2626" />
+
+    <!-- R -->
+    <path d="M 71,10 L 86,10 C 91.5,10 94.5,13 94.5,18 C 94.5,22 92,24.5 88,25.5 L 96,37 L 89,37 L 82,26 L 77,26 L 77,37 L 71,37 Z M 77,15.5 L 77,21 L 85,21 C 87.5,21 89,19.8 89,18.2 C 89,16.5 87.5,15.5 85,15.5 Z" fill="#dc2626" />
+
+    <!-- I -->
+    <rect x="98" y="10" width="6" height="27" rx="0.5" fill="#dc2626" />
+
+    <!-- T -->
+    <path d="M 108,10 L 126,10 L 126,15.5 L 120,15.5 L 120,37 L 114,37 L 114,15.5 L 108,15.5 Z" fill="#dc2626" />
+
+    <!-- A -->
+    <path d="M 137,10 L 145,10 L 155,37 L 148.5,37 L 146,29.5 L 136,29.5 L 133.5,37 L 127,37 Z M 137.5,24.5 L 144.5,24.5 L 141,14.5 Z" fill="#dc2626" />
+
+    <!-- M with rounded peaks -->
+    <path d="M 158,13 C 158,11 160,10 162,10 L 165,10 L 172.5,25.5 L 180,10 L 183,10 C 185,10 187,11 187,13 L 187,37 L 181.5,37 L 181.5,18 L 175,31 L 170,31 L 163.5,18 L 163.5,37 L 158,37 Z" fill="#dc2626" />
+
+    <!-- Registered Trademark ® Symbol -->
+    <circle cx="190.5" cy="11.5" r="2.8" fill="none" stroke="#dc2626" stroke-width="0.8" />
+    <text x="190.5" y="13.2" font-family="Arial, sans-serif" font-size="3.8" font-weight="bold" fill="#dc2626" text-anchor="middle">R</text>
+
+    <!-- Tagline: SWITCH ON THE GOOD TIMES -->
+    <text x="44" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.8" font-weight="900" fill="#334155" letter-spacing="1.4">SWITCH ON THE GOOD TIMES</text>
+  </g>
+</svg>
