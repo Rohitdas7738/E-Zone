@@ -229,3 +229,9 @@
             const encoded = encodeURIComponent(msg);
             window.open(`https://wa.me/919330507738?text=${encoded}`, '_blank');
         }
+
+        if (typeof window !== "undefined") {
+            window.renderCartSummary = renderCartSummary;
+            window.updateDynamicPaymentQR = updateDynamicPaymentQR;
+            window.placeOrderOnWhatsApp = placeOrderOnWhatsApp;
+        }

@@ -11,29 +11,30 @@ try {
     sessionStorage.removeItem('ezone_admin_session');
 } catch(e) {}
 
-let currentLang = 'bn';
-if (typeof window !== "undefined") window.currentLang = currentLang;
-let cart = [];
+var currentLang = 'bn';
+var cart = [];
 
-let isPermanentlySaved = true;
-let deleteModeActive = false;
-let pendingActionType = null;
-let currentAdminPricingId = null;
-let selectedSubItemData = null;
+var isPermanentlySaved = true;
+var deleteModeActive = false;
+var pendingActionType = null;
+var currentAdminPricingId = null;
+var selectedSubItemData = null;
 
-let deletedProductIds = [];
-let savedCustomData = {};
-let savedCategoryImages = {};
-let customAddedProducts = [];
+var deletedProductIds = [];
+var savedCustomData = {};
+var savedCategoryImages = {};
+var customAddedProducts = [];
+
+var rawProducts = (typeof originalProducts !== 'undefined') ? originalProducts : (window.originalProducts || []);
 
 // Direct clean mapping from product catalogue
-let products = originalProducts.map(p => ({
+var products = rawProducts.map(p => ({
     ...p,
     qty: 1,
     discountPercent: Number.isFinite(Number(p.discountPercent)) ? Math.min(90, Math.max(0, Number(p.discountPercent))) : 20
 }));
 
-const categoryLabels = {
+var categoryLabels = {
     "All": { en: "All Items", bn: "সব পণ্য", hi: "सभी उत्पाद" },
     "lights and decoratives light": { en: "Decoratives & Lights", bn: "ডেকোরেটিভ ও লাইটস", hi: "सजावटी और लाइट" },
     "Fans": { en: "Fans Section", bn: "ফ্যান সেকশন", hi: "पंखा सेक्शन" },
@@ -46,12 +47,11 @@ const categoryLabels = {
     "switch and sockets": { en: "Switch & Sockets", bn: "সুইচ ও সকেট", hi: "स्विच और सॉकेट" },
     "accesories": { en: "Accessories", bn: "অ্যাক্সেসরিজ", hi: "एक्सेसरीज" },
     "wiring items": { en: "Wiring & Tapes", bn: "ওয়্যারিং ও টেপ", hi: "वायरिंग और टेप" },
-    "Pvc plastic items": { en: "PVC & Plastic Items", bn: "পিভিসি ও প্লাস্টিক পণ্য", hi: "पीवीसी और प्लास्टिक" },
+    "Pvc plastic items": { en: "PVC & Plastic Items", bn: "পিভিসি ও প্লাস্টিক পণ্য", hi: "পিভিসি ও প্লাস্টিক" },
     "wires and cabiles": { en: "Wires & Cables", bn: "তার ও কেবল", hi: "तार और केबल" }
 };
-if (typeof window !== "undefined") window.categoryLabels = categoryLabels;
 
-const categoriesList = [
+var categoriesList = [
     { name: "All", label: "All Items", icon: "fas fa-th-large" },
     { name: "lights and decoratives light", label: "Decoratives & Lights", icon: "fas fa-lightbulb" },
     { name: "Fans", label: "Fans Section", icon: "fas fa-fan" },
@@ -68,26 +68,22 @@ const categoriesList = [
     { name: "wires and cabiles", label: "Wires & Cables", icon: "fas fa-project-diagram" }
 ];
 
-let selectedCategory = "All";
-let selectedBrand = "All";
+var selectedCategory = "All";
+var selectedBrand = "All";
 
-window.addEventListener('DOMContentLoaded', () => {
-    isPermanentlySaved = true;
-    const totalCountEl = document.getElementById('total-count');
-    if (totalCountEl) totalCountEl.innerText = products.length;
-    initFilters();
-    renderCategoryCards();
-    renderProducts();
-    keepBagFixedOnPhysicalScreen();
-
-    const searchInput = document.getElementById('search-input');
-    if (searchInput) {
-        searchInput.addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                triggerSearch();
-            }
-        });
-    }
-});
+if (typeof window !== "undefined") {
+    window.currentLang = currentLang;
+    window.cart = cart;
+    window.products = products;
+    window.categoriesList = categoriesList;
+    window.categoryLabels = categoryLabels;
+    window.selectedCategory = selectedCategory;
+    window.selectedBrand = selectedBrand;
+    window.isPermanentlySaved = isPermanentlySaved;
+    window.savedCategoryImages = savedCategoryImages;
+    window.savedCustomData = savedCustomData;
+    window.deletedProductIds = deletedProductIds;
+    window.customAddedProducts = customAddedProducts;
+}
 
 const ADMIN_PIN_BANK = [];

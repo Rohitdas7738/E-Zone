@@ -1,8 +1,8 @@
         /* ================= ROX PRODUCT MARKETING AGENT LOGIC ================= */
-        let roxCurrentProductId = null;
-        let roxLang = 'bn';
+        var roxCurrentProductId = null;
+        var roxLang = 'bn';
 
-        const roxUiText = {
+        var roxUiText = {
             bn: {
                 subtitle: 'প্রোডাক্ট মার্কেটিং এজেন্ট',
                 speak: 'শুনুন',
@@ -368,6 +368,7 @@
 
 
         if (typeof window !== "undefined") {
+            window.roxUiText = roxUiText;
             window.openRoxProduct = openRoxProduct;
             window.closeRoxProduct = closeRoxProduct;
             window.openRoxChatFromModal = openRoxChatFromModal;

@@ -18,12 +18,14 @@
             }
         }
 
-        if (window.visualViewport) {
+        if (typeof window !== 'undefined' && window.visualViewport && typeof window.visualViewport.addEventListener === 'function') {
             window.visualViewport.addEventListener('resize', keepBagFixedOnPhysicalScreen);
             window.visualViewport.addEventListener('scroll', keepBagFixedOnPhysicalScreen);
         }
-        window.addEventListener('scroll', keepBagFixedOnPhysicalScreen, { passive: true });
-        window.addEventListener('resize', keepBagFixedOnPhysicalScreen);
+        if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') {
+            window.addEventListener('scroll', keepBagFixedOnPhysicalScreen, { passive: true });
+            window.addEventListener('resize', keepBagFixedOnPhysicalScreen);
+        }
 
         function toggleSubSectionInputs() {
             const isChecked = document.getElementById('enable-sub-section-toggle').checked;
@@ -359,4 +361,18 @@
 
             const raw = ((baseMrp - newPrice) / baseMrp) * 100;
             return Math.min(90, Math.max(0, Math.round(raw * 100) / 100));
+        }
+
+        if (typeof window !== "undefined") {
+            window.keepBagFixedOnPhysicalScreen = keepBagFixedOnPhysicalScreen;
+            window.toggleSubSectionInputs = toggleSubSectionInputs;
+            window.handleCardClickForVariants = handleCardClickForVariants;
+            window.addToCart = addToCart;
+            window.updateCartCount = updateCartCount;
+            window.openCartWhatsApp = openCartWhatsApp;
+            window.closeCartSummary = closeCartSummary;
+            window.removeFromCart = removeFromCart;
+            window.changeCartItemQty = changeCartItemQty;
+            window.getDiscountInfo = getDiscountInfo;
+            window.calculateDiscountFromMrp = calculateDiscountFromMrp;
         }

@@ -582,9 +582,9 @@
             img.src = PRODUCT_IMAGE_FOLDER + base + PRODUCT_IMAGE_EXTENSIONS[index];
         }
 
-        /*
-         * Visitors always receive the final product catalogue embedded in this
-         * HTML. Old browser-local edits are ignored unless this tab is already
-         * authenticated as Admin. This prevents a previous visitor's local
-         * storage from changing what a new visitor sees.
-         */
+        if (typeof window !== "undefined") {
+            window.originalProducts = originalProducts;
+            window.PRODUCT_IMAGES = PRODUCT_IMAGES;
+            window.getEmbeddedProductImage = getEmbeddedProductImage;
+            window.tryNextProductImage = tryNextProductImage;
+        }

@@ -70,14 +70,20 @@
 
         function renderProducts() {
             const grid = document.getElementById('products-grid-container');
+            if (!grid) return;
             grid.innerHTML = "";
 
-            const rawQuery = document.getElementById('search-input').value.trim();
-            const query = normalizeSearchText(rawQuery);
+            const searchInput = document.getElementById('search-input');
+            const rawQuery = searchInput ? searchInput.value.trim() : "";
+            const query = (typeof normalizeSearchText === 'function') ? normalizeSearchText(rawQuery) : rawQuery.toLowerCase();
 
-            const baseFiltered = products.filter(p => {
-                const matchesCat = (selectedCategory === "All" || p.category === selectedCategory);
-                const matchesBrand = (selectedBrand === "All" || String(p.brand || '').toLowerCase() === selectedBrand.toLowerCase());
+            const prodList = window.products || (typeof products !== 'undefined' ? products : []);
+            const curCat = window.selectedCategory || (typeof selectedCategory !== 'undefined' ? selectedCategory : "All");
+            const curBrand = window.selectedBrand || (typeof selectedBrand !== 'undefined' ? selectedBrand : "All");
+
+            const baseFiltered = prodList.filter(p => {
+                const matchesCat = (curCat === "All" || p.category === curCat);
+                const matchesBrand = (curBrand === "All" || String(p.brand || '').toLowerCase() === curBrand.toLowerCase());
                 return matchesCat && matchesBrand;
             });
 
@@ -88,7 +94,7 @@
                 directResults = baseFiltered.map((p, index) => ({ product: p, meta: { score: 0 }, index }));
             } else {
                 baseFiltered.forEach((p, index) => {
-                    const meta = getSearchMeta(p, query);
+                    const meta = (typeof getSearchMeta === 'function') ? getSearchMeta(p, query) : { direct: p.name.toLowerCase().includes(query), score: 1000 };
                     // Ignore genuinely unrelated products. Keep a generous threshold
                     // so misspellings and closely related items still appear as Similar.
                     if (meta.direct || meta.score >= 700) {
@@ -108,7 +114,11 @@
             }
 
             const orderedResults = [...directResults, ...similarResults];
-            document.getElementById('displayed-count').innerText = orderedResults.length;
+            const dispCountEl = document.getElementById('displayed-count');
+            if (dispCountEl) dispCountEl.innerText = orderedResults.length;
+
+            const totalCountEl = document.getElementById('total-count');
+            if (totalCountEl) totalCountEl.innerText = prodList.length;
 
             if (orderedResults.length === 0) {
                 grid.innerHTML = `<div class="col-span-full text-center py-10 text-gray-400 bg-white rounded-xl border border-dashed border-gray-200 text-xs">
@@ -119,8 +129,10 @@
                 return;
             }
 
-            const enqButtonLabel = locales[currentLang]["btn-enquiry"] || "WhatsApp Enquiry";
-            const qtyLabel = locales[currentLang]["qty-lbl"] || "Quantity:";
+            const activeLang = window.currentLang || (typeof currentLang !== 'undefined' ? currentLang : 'bn');
+            const locDict = (typeof locales !== 'undefined' && locales[activeLang]) ? locales[activeLang] : (window.locales ? window.locales[activeLang] : {});
+            const enqButtonLabel = locDict["btn-enquiry"] || "WhatsApp Enquiry";
+            const qtyLabel = locDict["qty-lbl"] || "Quantity:";
 
             const renderOneProduct = (p) => {
                 const card = document.createElement('div');
@@ -251,7 +263,7 @@
                             </button>
                             <div class="grid grid-cols-2 gap-1.5 mb-1.5">
                                 <button type="button" onclick="event.stopPropagation(); openRoxProduct('${p.id}')" class="rox-product-btn !mt-0 !w-full" title="Ask ROX about this product">
-                                    <i class="fas fa-robot"></i> ${roxUiText[currentLang === 'bn' ? 'bn' : (currentLang === 'hi' ? 'hi' : 'en')].ask}
+                                    <i class="fas fa-robot"></i> ${(window.roxUiText && window.roxUiText[activeLang]) ? window.roxUiText[activeLang].ask : 'ROX AI'}
                                 </button>
                                 <button type="button" onclick="event.stopPropagation(); shareProduct('${p.id}', event)" class="w-full bg-slate-100 hover:bg-teal-50 hover:border-teal-300 border border-slate-200 text-teal-900 text-[11px] font-bold py-1.5 px-2 rounded-md flex items-center justify-center gap-1.5 transition shadow-sm cursor-pointer active:scale-95" title="Share this product">
                                     <i class="fas fa-share-alt text-teal-700 text-xs"></i> <span>Share</span>
@@ -282,12 +294,35 @@
             }
         }
 
-        window.addEventListener('DOMContentLoaded', () => {
+        function initApp() {
             try {
                 const saved = localStorage.getItem('ezone_language');
                 if (saved && ['bn', 'en', 'hi'].includes(saved)) {
                     currentLang = saved;
                 }
             } catch(e) {}
+
+            if (typeof initFilters === 'function') initFilters();
+            if (typeof renderCategoryCards === 'function') renderCategoryCards();
             changeLanguage(currentLang || 'bn');
-        });
+            if (typeof keepBagFixedOnPhysicalScreen === 'function') keepBagFixedOnPhysicalScreen();
+
+            const totalCountEl = document.getElementById('total-count');
+            const pList = window.products || (typeof products !== 'undefined' ? products : []);
+            if (totalCountEl) totalCountEl.innerText = pList.length;
+
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                searchInput.addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter') {
+                        triggerSearch();
+                    }
+                });
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initApp);
+        } else {
+            initApp();
+        }

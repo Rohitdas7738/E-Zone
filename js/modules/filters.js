@@ -366,3 +366,20 @@
                 console.warn("Storage limit reached.");
             }
         }
+
+        if (typeof window !== "undefined") {
+            window.renderCategoryCards = renderCategoryCards;
+            window.triggerUpload = triggerUpload;
+            window.handleFileSelected = handleFileSelected;
+            window.selectCategory = selectCategory;
+            window.getBrandTheme = getBrandTheme;
+            window.getBrandTypographyHtml = getBrandTypographyHtml;
+            window.styleBrandFilterButton = styleBrandFilterButton;
+            window.initFilters = initFilters;
+            window.updateFilterButtonsHighlight = updateFilterButtonsHighlight;
+            window.resetFilters = resetFilters;
+            window.getDiscountInfo = getDiscountInfo;
+            window.updateWaLink = updateWaLink;
+            window.updateAllWhatsAppLinks = updateAllWhatsAppLinks;
+            window.saveDataToStorage = saveDataToStorage;
+        }
